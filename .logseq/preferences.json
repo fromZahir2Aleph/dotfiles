@@ -1,0 +1,42 @@
+{
+  "theme": null,
+  "themes": {
+    "mode": "dark",
+    "light": {
+      "name": "Default Light Theme",
+      "url": null,
+      "description": "Logseq default light theme.",
+      "mode": "light",
+      "selected": true,
+      "group-first": true,
+      "group-desc": "light themes"
+    },
+    "dark": {
+      "name": "Awesome Styler Dark",
+      "url": "lsp://logseq.io/logseq-awesome-styler/dist/assets/awesomeStylerExt.css",
+      "description": "Dark customizable theme theme with extra stuff",
+      "mode": "dark",
+      "pid": "logseq-awesome-styler",
+      "selected": false
+    }
+  },
+  "externals": [],
+  "pinnedToolbarItems": [
+    "logseq-graph-analysis:logseq-graph-analysis",
+    "logseq-quick-capture:logseq-quick-capture",
+    "logseq-awesome-props:AwesomeProps",
+    "logseq-agenda:logseq-plugin-agenda",
+    "logseq-journals-calendar:open-calendar",
+    "logseq-powertags-plugin:logseq-powertags-plugin",
+    "logseq-omnivore:logseq-omnivore",
+    "logseq-excalidraw:logseq-plugin-excalidraw",
+    "logseq-todo-plugin:logseq-plugin-todo",
+    "logseq-tocgen:open-toc",
+    "logseq-pomodoro-timer:pomodoro_pause",
+    "logseq-tags:tags-plugin-open",
+    "logseq-awesome-styler:AwesomeStyler",
+    "logseq-journals-calendar:goto-today",
+    "logseq-pomodoro-timer:pomodoro_timer",
+    "logseq-pomodoro-timer:pomodoro_reset"
+  ]
+}

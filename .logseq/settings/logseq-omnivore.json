@@ -1,0 +1,20 @@
+{
+  "generalSettings": "",
+  "apiKey": "969b781c-b13e-4c9f-a184-952e2fd3e291",
+  "filter": "advanced",
+  "customQuery": "label:Logseq",
+  "frequency": "60",
+  "graph": "DownTheRiver",
+  "syncAt": "2023-08-22T15:59:29",
+  "highlightOrder": "the location of highlights in the article",
+  "isSinglePage": true,
+  "pageName": "Omnivore",
+  "articleTemplate": "### [{{{title}}}]({{{omnivoreUrl}}})\ncollapsed::\ninput:: \nauthor:: {{{author}}}\ntags:: highlight",
+  "highlightTemplate": "> {{{text}}} [⤴️]({{{highlightUrl}}})\n",
+  "advancedSettings": "",
+  "endpoint": "https://api-prod.omnivore.app/api/graphql",
+  "disabled": false,
+  "version": "v1.13.4",
+  "syncJobId": 12,
+  "loading": false
+}

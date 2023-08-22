@@ -1,0 +1,13 @@
+{
+  "EditMode_DuplicateBlock": false,
+  "Shortcut_AddParentBlock": "mod+e",
+  "Shortcut_AddSiblingBlock_Before": "alt+shift+enter",
+  "Shortcut_AddSiblingBlock_After": "alt+enter",
+  "Shortcut_AddChildBlock": "ctrl+alt+enter",
+  "Shortcut_DuplicateBlock": "mod+d",
+  "Shortcut_CopySelectedTextAsBlockRefAlias": "mod+alt+c",
+  "Shortcut_InsertCurrentDateTime": "mod+alt+d",
+  "Shortcut_InsertCurrentTime": "mod+alt+t",
+  "CurrentTimeFormat": "hh:mm A",
+  "disabled": false
+}
