@@ -1,0 +1,12 @@
+[[language]]
+name = "markdown"
+language-servers = ["ltex", "marksman"]
+file-types = ["md", "txt"]
+scope = "source.markdown"
+roots = []
+
+[language-server.ltex]
+command = "/home/zelim/opt/ltex-ls/bin/ltex-ls"
+
+[language-server.marksman]
+command= "/home/zelim/.local/bin/marksman"

@@ -1,0 +1,8 @@
+[editor]
+rulers = [80, 120]
+mouse = true
+line-number = "relative"
+
+[keys.normal]
+h = "jump_to_identifier_label"
+l = "jump_to_str_label"
