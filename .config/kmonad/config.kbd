@@ -62,8 +62,8 @@
   esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11     f12    @norm
   grv     3      2      1      0      4      5      6      7      8      9      -       =      bspc             
   @capsw  ~      ret    bspc   ;      @      `      @._:   @,_'   esc    "      [       ]      \              
-  ^       @alt_! @met_- @sft_+ @ctl_= #      &      @ctlbr @sftbr @met_[ @alt_] '       ret                     
-  @st_tb  <      /      *      @>_nv  ?      $      @hb_nv  %      @num  \\     rsft           ;;up                
+  ^       @alt_! @met_- @sft_+ @ctl_= ?      &      @ctlbr @sftbr @met_[ @alt_] '       ret                     
+  @st_tb  <      /      *      @>_nv  #      $      @hb_nv  %      @num  \\     rsft           ;;up                
   lctl KeyMenu   @nv_in @nv_tm spc           ralt   rctl                       ;;left   down   rght
 )
 
