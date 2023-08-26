@@ -1,0 +1,316 @@
+(defcfg
+  input  (device-file "/dev/input/by-id/usb-Microsoft_Microsoft_Ergonomic_Keyboard_600620795021-event-kbd")
+  output (uinput-sink "KMonad kbd")
+  fallthrough true
+)
+
+(defsrc
+  esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11     f12    slck      
+  grv     1      2      3      4      5      6      7      8      9      0      -       =      bspc                      
+  tab     q      w      e      r      t      y      u      i      o      p      [       ]      \             
+  caps    a      s      d      f      g      h      j      k      l      ;      '       ret                      
+  lsft    z      x      c      v      b      n      m      ,      .      /      rsft           ;;up                      
+  lctl  KeyMenu  lmet   lalt          spc           ralt   rctl                        ;;left  down   rght
+)
+
+(deflayer base 
+  esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12    @norm
+  grv     3      2      1      0      4      5      6      7      8      9      -      =      caps              
+  @capsw  k      ret    bspc   tab    b      j      @._:   @,_'   esc    x      [      ]      \               
+  m       @alt_r @met_s @sft_t @ctl_n @f_z   w      @ctl_a @sft_e @met_i @alt_h v      ret                                                
+  @st_tb  p      @c_q   @l_rus @d_nv  @g_hx  y      @o_nv  @sym   @num   u      rsft           ;;up                    
+  lctl KeyMenu   @nv_in @nv_tm spc           ralt   rctl                       ;;left   down   rght
+)
+
+(deflayer enhelix
+  esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12    @norm
+  grv     3      2      1      0      4      5      6      7      8      9      -      =      caps              
+  @capsw  k      ret    bspc   tab    b      j      @._:   @,_'   esc    x      [      ]      \               
+  m       @hx_r  @hx_s  @sft_t @ctl_n @f_z   w      @hx_a  @sft_e @hx_i  @hx_h  v      ret                                                
+  @st_tb  p      @hx_cq l      @d_nv  @g_bs  y      @hx_o  @sym   @num   u      rsft           ;;up                    
+  lctl KeyMenu   @nv_in @nv_tm spc           ralt   rctl                       ;;left   down   rght
+)
+
+(deflayer ruhelix 
+  esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12    @norm
+  grv     3      2      1      0      4      5      6      7      8      9      -      =      caps              
+  @capsw  p      ret    bspc   tab    ,      ;      @/_:   @com   @es2en x      [      ]      \               
+  v       @alt_h @met_c @st_n2 @ctl_y @r_w   @q_a   @ct_t2 @sft_j @met_f @alt_b .      ret                        
+  @st_tb  @l_o   @g_i   k      @dnvr  u      [      @e_nv  @z_`   @m_]   @s_'   rsft           ;;up              
+  lctl KeyMenu   @nv_in @nv_tm spc           ralt   rctl                       ;;left   down   rght
+)
+
+(deflayer sticky-helix
+  esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12    @norm
+  grv     3      2      1      0      4      5      6      7      8      9      -      =      caps              
+  @capsw  @p_h   ret    bspc   tab    @,_h   @;_h   @/:_h  @com   esc    @x_h   [      ]      \               
+  @v_h    @r_h   @c_h   @n_h   @y_h   @rw_h  @qa_h  @t_h   @j_h   @f_h   @b_h   @._h   ret                        
+  @st_tb  @lo_h  @gi_h  @k_h   @d_h   @u_h   @[_h   @e_h   @z`_h  @m]_h  @s'_h  rsft           ;;up              
+  lctl KeyMenu   @nv_in @nv_tm spc           ralt   rctl                       ;;left   down   rght
+)
+
+(deflayer russian 
+  esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12    @norm
+  grv     3      2      1      0      4      5      6      7      8      9      -      =      caps              
+  @capsw  p      ret    bspc   tab    ,      ;      @/_:   @com   esc    x      [      ]      \               
+  v       @alt_h @met_c @st_n2 @ctl_y @r_w   @q_a   @ct_t2 @sft_j @met_f @alt_b .      ret                        
+  @st_tb  @l_o   @g_i   @k_en  @dnvr  u      [      @e_nv  @z_`   @m_]   @s_'   rsft           ;;up              
+  lctl KeyMenu   @nv_in @nv_tm spc           ralt   rctl                       ;;left   down   rght
+)
+
+(deflayer symbols
+  esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11     f12    @norm
+  grv     3      2      1      0      4      5      6      7      8      9      -       =      bspc             
+  @capsw  ~      ret    bspc   ;      @      `      @._:   @,_'   esc    "      [       ]      \              
+  ^       @alt_! @met_- @sft_+ @ctl_= #      &      @ctlbr @sftbr @met_[ @alt_] '       ret                     
+  @st_tb  <      /      *      @>_nv  ?      $      @hb_nv  %      @num  \\     rsft           ;;up                
+  lctl KeyMenu   @nv_in @nv_tm spc           ralt   rctl                       ;;left   down   rght
+)
+
+(deflayer logseq
+  esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11     f12    @norm
+  grv     3      2      1      0      4      5      6      7      8      9      -       =      bspc             
+  @capsw  ~      ret    ;      bspc   @      `      @._:   @,_'   esc    "      [       ]      \              
+  ^       @alt_! @-=    @+=    @2=    @##    &      @ctlbr @sftbr @2[    @2]    '       ret                     
+  @st_tb  @<=    /      *      @>=    @?!    $      @hb    %      @num   @up_dr rsft           ;;up                
+  lctl  KeyMenu  lmet   @nv_tm spc           ralt   rctl                       ;;left   down   rght
+)
+
+(deflayer rulogseq
+  esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11     f12    @norm
+  grv     3      2      1      0      4      5      6      7      8      9      -       =      bspc             
+  @capsw  ~      ret    ;      bspc   @      `      @._:   @,_'   esc    "      [       ]      \              
+  ^       @alt_! @-=    @+=    @2=    @##    &      @ctlbr @sftbr @ru_2[ @ru_2] '       ret                     
+  @st_tb  @<=    /      *      @>=    @?!    $      @hb    %      @num   @up_dr rsft           ;;up                
+  lctl  KeyMenu  lmet   @nv_tm spc           ralt   rctl                       ;;left   down   rght
+)
+
+(deflayer shifted
+  esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11     f12    @norm
+  grv     3      2      1      0      4      5      6      7      8      9      -       =      caps              
+  @capsw  K      ret    bspc   tab    B      J      @._:   @,_'   esc    X      [       ]       \               
+  M       R      S      T      N      @F_Z   W      A      E      I      H      V       ret                        
+  @st_tb  P      @C_Q   L      D      G      Y      O      @sym   @num   U      rsft            ;;up                
+  lctl  KeyMenu  lmet   lalt          @out          ralt   rctl                        ;;left   down   rght
+)
+
+(deflayer hx_shifted
+  esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11     f12    @norm
+  grv     3      2      1      0      4      5      6      7      8      9      -       =      caps              
+  @capsw  K      ret    bspc   tab    B      J      @._:   @,_'   esc    X      [       ]       \               
+  M       R      S      T      N      @F_Z   W      @hx_A  E      @hx_I      H      V       ret                        
+  @st_tb  P      @C_Q   L      D      G      Y      @hx_O  @sym   @num   U      rsft            ;;up                
+  lctl  KeyMenu  lmet   lalt          @out          ralt   rctl                        ;;left   down   rght
+)
+
+(deflayer nav-edit
+  esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12    @norm
+  grv     3      2      1      0      4      5      6      7      8      9      -      =      caps              
+  @capsw  @m3    ret    bspc   tab    @altf4 z      XX     f6     f5     u      [      ]      \               
+  @redo   @cut   @copy  @pst   @undo  @ctl_w f6     left   down   up     right  J      ret                                                
+  @st_tb  @ptab  @ntab  @pw    @nw    del    x    KeyHome  @lsq   @num& KeyEnd  rsft          ;;up              
+  lctl  KeyMenu  @nvoff lalt          spc           ralt   rctl                       ;;left   down   rght
+)
+
+(deflayer runav-edit
+  esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12    @norm
+  grv     3      2      1      0      4      5      6      7      8      9      -      =      caps              
+  @capsw  @m3    ret    bspc   tab    @altf4 z      XX     f6     f5     u      [      ]      \               
+  @redo   @cut   @copy  @pst   @undo  @ctl_w f6     left   down   up     right  J      ret                                                
+  @st_tb  @ptab  @ntab  @pw    @nw    del    x    KeyHome  @ru_ls @num& KeyEnd   rsft          ;;up              
+  lctl  KeyMenu  @nvoff lalt          spc           ralt   rctl                       ;;left   down   rght
+)
+
+(deflayer numbers
+  esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12    @norm
+  grv     3      2      1      0      4      5      6      7      8      9      -      =      caps              
+  @capsw  k      ret    bspc   f6     v      XX     @._:   @,_'   esc    q      [      ]      \               
+  esc     @alt_3 @met_2 @sft_1 @ctl_0 4      5      @ctl_6 @sft_7 @met_8 @alt_9 XX     ret                                                
+  @st_tb  m      6      7      @d_nv  del    x      @hb_nv  @hb    @sym   u      rsft           ;;up              
+  lctl KeyMenu   @nv_in lalt   spc           ralt   rctl                       ;;left   down   rght
+)
+
+(deflayer num2
+  esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12    @norm
+  grv     3      2      1      0      4      5      6      7      8      9      -      =      caps              
+  @capsw  k      ret    bspc   f6     v      XX     @._:   @,_'   esc    q      [      ]      \               
+  esc     @3&    @2&    @1&    @0&    @4&    @5&    @6&    @7&    @8&    @9&    XX     ret                                                
+  @st_tb  m      6      7      @d_nv  p      x      @hb_nv  @hb    @sym   u      rsft           ;;up              
+  lctl KeyMenu   @nv_in lalt   spc           ralt   rctl                       ;;left   down   rght
+)
+
+(deflayer normal
+  esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11     f12    @hb       
+  grv     3      2      1      0      4      5      6      7      8      9      -       =      bspc                      
+  tab     q      w      e      r      t      y      u      i      o      p      [       ]      \             
+  caps    a      s      d      f      g      h      j      k      l      ;      '       ret                      
+  lsft    z      x      c      v      b      n      m      ,      .      /      rsft           ;;up                      
+  lctl  KeyMenu  lmet   lalt          spc           ralt   rctl                        ;;left  down   rght
+)
+
+(defalias
+  hb (layer-switch base)
+  tb (layer-toggle base)
+	ts (layer-toggle symbols)
+  hs (layer-switch symbols)
+  tn (layer-toggle numbers)
+  hn (layer-switch numbers) 
+  rus (layer-switch russian)
+  ruhx (layer-switch ruhelix)
+  norm (layer-switch normal)
+  nv_tm (layer-delay 7000 nav-edit)
+  nv_in (layer-add nav-edit)
+  nvoff (layer-rem nav-edit)
+  sym (tap-hold-next-release 150 (around-next @ts) @hs)
+  num (tap-hold-next-release 150 (around-next @tn) @hn)
+  capsw (layer-add shifted)
+  sp_hb (tap-hold-next-release 150 spc @hb :timeout-button spc)
+
+	alt_r (tap-hold-next-release 150 r lalt)
+	sft_t (tap-hold-next-release 150 t lsft)
+	ctl_n (tap-hold-next-release 150 n lctl)
+	met_s (tap-hold-next-release 150 s lmet)
+  met_i (tap-hold-next-release 150 i rmet)
+	ctl_a (tap-hold-next-release 150 a rctl)
+	sft_e (tap-hold-next-release 150 e rsft)
+	alt_h (tap-hold-next-release 150 h lalt)
+  l_rus (tap-hold-next-release 150 l (tap-macro-release @rus (around lalt lsft)))
+  ._: (tap-hold-next-release 150 . :)
+  ,_' (tap-hold-next-release 150 , ')
+  c_q (tap-hold-next-release 150 c q)
+  C_Q (tap-hold-next-release 150 C Q)
+  f_z (tap-hold-next-release 150 f z)
+  F_Z (tap-hold-next-release 150 F Z)
+  d_nv (tap-hold-next-release 150 d (layer-toggle nav-edit))
+  o_nv (tap-hold-next-release 150 o (layer-toggle nav-edit))
+
+  g_hx (tap-hold-next-release 150 g (layer-switch enhelix))
+  g_bs (tap-hold-next-release 150 g (layer-switch base))
+  hx_i (tap-hold-next-release 150 (tap-macro i (around lalt lsft) @ruhx) rmet)
+  hx_s (tap-hold-next-release 150 (tap-macro s (around lalt lsft) @ruhx) lmet)
+  hx_cq (tap-hold-next-release 150 (tap-macro c (around lalt lsft) @ruhx) q)
+  hx_o (tap-hold-next-release 150 (tap-macro o (around lalt lsft) @ruhx) (layer-toggle nav-edit))
+  hx_a (tap-hold-next-release 150 (tap-macro a (around lalt lsft) @ruhx) rctl)
+  hx_r (tap-hold-next-release 150 (tap-macro r (around lalt lsft) (layer-add sticky-helix)) lalt)
+  hx_t (tap-hold-next-release 150 t (layer-toggle hx_shifted))
+  hx_A (tap-macro A (around lalt lsft) @ruhx)
+  hx_I (tap-macro I (around lalt lsft) @ruhx)
+  hx_O (tap-macro O (around lalt lsft) @ruhx)
+  hx_h (tap-hold-next-release 150 (tap-macro h (around lalt lsft) (layer-add sticky-helix)) lalt)
+  es2en (tap-macro esc (around lalt lsft) (layer-switch enhelix))
+
+  p_h #(p (layer-rem sticky-helix) (around lalt lsft))
+  ,_h #(, (layer-rem sticky-helix) (around lalt lsft))
+  ;_h #(; (layer-rem sticky-helix) (around lalt lsft))
+  /:_h (tap-hold-next-release 150 #(/ (around lalt lsft) (layer-rem sticky-helix)) #(: (around lalt lsft) (layer-rem sticky-helix)))
+  x_h #(x (layer-rem sticky-helix) (around lalt lsft))
+  v_h #(v (layer-rem sticky-helix) (around lalt lsft))
+  r_h #(r (layer-rem sticky-helix) (around lalt lsft))
+  c_h #(c (layer-rem sticky-helix) (around lalt lsft))
+  n_h #(n (layer-rem sticky-helix) (around lalt lsft))
+  y_h #(y (layer-rem sticky-helix) (around lalt lsft))
+  rw_h (tap-hold-next-release 150 #(r (around lalt lsft) (layer-rem sticky-helix)) #(w (around lalt lsft) (layer-rem sticky-helix)))
+  qa_h (tap-hold-next-release 150 #(q (around lalt lsft) (layer-rem sticky-helix)) #(a (around lalt lsft) (layer-rem sticky-helix)))
+  t_h #(t (layer-rem sticky-helix) (around lalt lsft))
+  j_h #(j (layer-rem sticky-helix) (around lalt lsft))
+  f_h #(f (layer-rem sticky-helix) (around lalt lsft))
+  b_h #(b (layer-rem sticky-helix) (around lalt lsft))
+  ._h #(. (layer-rem sticky-helix) (around lalt lsft))
+  lo_h (tap-hold-next-release 150 #(l (around lalt lsft) (layer-rem sticky-helix)) #(o (around lalt lsft) (layer-rem sticky-helix)))
+  gi_h (tap-hold-next-release 150 #(g (around lalt lsft) (layer-rem sticky-helix)) #(i (around lalt lsft) (layer-rem sticky-helix)))
+  k_h #(k (layer-rem sticky-helix) (around lalt lsft))
+  d_h #(d (layer-rem sticky-helix) (around lalt lsft))
+  u_h #(u (layer-rem sticky-helix) (around lalt lsft))
+  [_h #([ (layer-rem sticky-helix) (around lalt lsft))
+  e_h #(e (layer-rem sticky-helix) (around lalt lsft))
+  z`_h (tap-hold-next-release 150 #(z (around lalt lsft) (layer-rem sticky-helix)) #(` (around lalt lsft) (layer-rem sticky-helix)))
+  m]_h (tap-hold-next-release 150 #(m (around lalt lsft) (layer-rem sticky-helix)) #(] (around lalt lsft) (layer-rem sticky-helix)))
+  s'_h (tap-hold-next-release 150 #(s (around lalt lsft) (layer-rem sticky-helix)) #(' (around lalt lsft) (layer-rem sticky-helix)))
+
+  alt_! (tap-hold-next-release 150 ! (around lalt @tb))
+	sft_+ (tap-hold-next-release 150 + lsft)
+	ctl_= (tap-hold-next-release 150 = (around lctl @tb))
+  met_- (tap-hold-next-release 150 - (around lmet @tb))
+  ctlbr (tap-hold-next-release 150 \( (around rctl @tb))
+  sftbr (tap-hold-next-release 150 \) rsft)
+  alt_] (tap-hold-next-release 150 ] (around lalt @tb))
+  met_[ (tap-hold-next-release 150 [ (around lmet @tb))
+
+  lsq (around-next (layer-toggle logseq))
+  ru_ls (around-next (layer-toggle rulogseq))
+  -= #(- -)
+  += #(+ +)
+  2= #(= =)
+  <= #(< =)
+  >= #(> =)
+  ?! #(? !)
+  ## #(# #)
+  2[ #([ [)
+  2] #(] ])
+  ru_2[ (tap-macro-release (tap-macro-release (around lalt lsft) [ [) (around lalt lsft))
+  ru_2] (tap-macro-release (tap-macro-release (around lalt lsft) ] ]) (around lalt lsft))
+  >_nv (tap-hold-next-release 150 > (layer-toggle nav-edit))
+  hb_nv (tap-hold-next-release 150 @hb (layer-toggle nav-edit))
+
+  alt_3 (tap-hold-next-release 150 3 lalt)
+	sft_1 (tap-hold-next-release 150 1 lsft)
+	ctl_0 (tap-hold-next-release 150 0 lctl)
+	met_2 (tap-hold-next-release 150 2 lmet)
+  met_8 (tap-hold-next-release 150 8 rmet)
+	ctl_6 (tap-hold-next-release 150 6 rctl)
+	sft_7 (tap-hold-next-release 150 7 rsft)
+	alt_9 (tap-hold-next-release 150 9 lalt)
+
+  num& (around-next (layer-toggle num2))
+  1& (around 1 (around-next @tn))
+  2& (around 2 (around-next @tn))
+  3& (around 3 (around-next @tn))
+  4& (around 4 (around-next @tn))
+  5& (around 5 (around-next @tn))
+  6& (around 6 (around-next @tn))
+  7& (around 7 (around-next @tn))
+  8& (around 8 (around-next @tn))
+  9& (around 9 (around-next @tn))
+  0& (around 0 (around-next @tn))
+
+  al_h2 (tap-hold-next-release 150 h (around lalt @tb))
+	st_n2 (tap-hold-next-release 150 n lsft)
+	ctl_y (tap-hold-next-release 150 y (around lctl @tb))
+  met_c (tap-hold-next-release 150 c (around lmet @tb))
+  ct_t2 (tap-hold-next-release 150 t (around rctl @tb))
+  sft_j (tap-hold-next-release 150 j rsft)
+  alt_b (tap-hold-next-release 150 b (around lalt @tb))
+  met_f (tap-hold-next-release 150 f (around lmet @tb))  
+  k_en (tap-hold-next-release 150 k (tap-macro-release @hb (around lalt lsft )))
+	com (around lsft /)
+	/_: (tap-hold-next-release 150 / (around lsft 6))
+  z_` (tap-hold-next-release 150 z `)
+  s_' (tap-hold-next-release 150 s ')
+  q_a (tap-hold-next-release 150 q a)
+  g_i (tap-hold-next-release 150 g i)
+  r_w (tap-hold-next-release 150 r w)
+  l_o (tap-hold-next-release 150 l o)
+  m_] (tap-hold-next-release 150 m ])
+  dnvr (tap-hold-next-release 150 d (layer-toggle runav-edit))
+  e_nv (tap-hold-next-release 150 e (layer-toggle nav-edit))
+
+  out #(spc (layer-rem shifted))
+  up_dr #(. . \\)
+  st_tb (around lsft tab)
+
+  undo (tap-hold-next-release 150 (around lctl z) lctl)
+  redo (around lctl y)
+  cut  (around rctl x)
+  pst (tap-hold-next-release 150 (around rctl v) lsft)
+  copy (around lctl c)
+  ptab (around lctl (around lsft tab))
+  ntab (around lctl tab)
+  ctl_w (around lctl w)
+  altf4 (around lalt f4)
+  pw (around alt (around lsft tab))
+  nw (around alt tab)
+  m1 (around lmet w)
+  m2 (around lmet e)
+  m3 (around lmet r)
+  es_nv #(esc @hb)
+)

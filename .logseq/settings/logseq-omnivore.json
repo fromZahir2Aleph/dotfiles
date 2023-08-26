@@ -5,7 +5,7 @@
   "customQuery": "label:Logseq",
   "frequency": "60",
   "graph": "DownTheRiver",
-  "syncAt": "2023-08-22T15:59:29",
+  "syncAt": "2023-08-23T14:28:23",
   "highlightOrder": "the location of highlights in the article",
   "isSinglePage": true,
   "pageName": "Omnivore",
@@ -15,6 +15,6 @@
   "endpoint": "https://api-prod.omnivore.app/api/graphql",
   "disabled": false,
   "version": "v1.13.4",
-  "syncJobId": 12,
+  "syncJobId": 8,
   "loading": false
 }
