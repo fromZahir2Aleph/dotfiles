@@ -6,3 +6,5 @@ line-number = "relative"
 [keys.normal]
 h = "jump_to_identifier_label"
 l = "jump_to_str_label"
+"'" = "collapse_selection"
+"A-'" = "flip_selections"
