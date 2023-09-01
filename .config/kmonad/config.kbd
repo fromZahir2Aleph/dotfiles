@@ -25,7 +25,7 @@
 (deflayer enhelix
   esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12    @norm
   grv     3      2      1      0      4      5      6      7      8      9      -      =      caps              
-  @capsw  k      ret    bspc   tab    b      j      @._:   @,_'   esc    x      [      ]      \               
+  @capsw  k      ret    bspc   tab    b      @hx_j  @._:   @,_'   esc    x      [      ]      \               
   m       @hx_r  @hx_s  @sft_t @ctl_n @f_z   w      @hx_a  @sft_e @hx_i  h      v      ret                                                
   @st_tb  p      @hx_cq l      @d_nv  @g_bs  y      @hx_o  @sym   @num   u      rsft           ;;up                    
   lctl KeyMenu   @nv_in @nv_tm spc           ralt   rctl                        ;;left   down   rght
@@ -35,6 +35,15 @@
   esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12    @norm
   grv     3      2      1      0      4      5      6      7      8      9      -      =      caps              
   @capsw  p      ret    bspc   tab    ,      ;      @/_:   @com   @es2en x      [      ]      \               
+  v       @alt_h @met_c @st_n2 @ctl_y @r_w   @q_a   @ct_t2 @sft_j @met_f @alt_b .      ret                        
+  @st_tb  @l_o   @g_i   @hx_k  @dnvr  u      [      @e_nv  @z_`   @m_]   @s_'   rsft           ;;up              
+  lctl KeyMenu   @nv_in @nv_tm spc           ralt   rctl                        ;;left   down   rght
+)
+
+(deflayer ruhelix2 
+  esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12    @norm
+  grv     3      2      1      0      4      5      6      7      8      9      -      =      caps              
+  @capsw  p      @rt2en bspc   tab    ,      ;      @/_:   @com   @es2en x      [      ]      \               
   v       @alt_h @met_c @st_n2 @ctl_y @r_w   @q_a   @ct_t2 @sft_j @met_f @alt_b .      ret                        
   @st_tb  @l_o   @g_i   @hx_k  @dnvr  u      [      @e_nv  @z_`   @m_]   @s_'   rsft           ;;up              
   lctl KeyMenu   @nv_in @nv_tm spc           ralt   rctl                        ;;left   down   rght
@@ -166,6 +175,7 @@
   hn (layer-add numbers) 
   rus (layer-switch russian)
   ruhx (layer-switch ruhelix)
+  ruhx2 (layer-switch ruhelix2)
   norm (layer-switch normal)
   nv_tm (layer-delay 7000 nav-edit)
   nv_in (layer-add nav-edit)
@@ -195,6 +205,7 @@
 
   g_hx (tap-hold-next-release 130 g (layer-switch enhelix))
   g_bs (tap-hold-next-release 130 g (layer-switch base))
+  hx_j (tap-macro j (around lalt lsft) @ruhx2)
   hx_i (tap-hold-next-release 130 (tap-macro i (around lalt lsft) @ruhx) rmet)
   hx_s (tap-hold-next-release 130 (tap-macro s (around lalt lsft) @ruhx) lmet)
   hx_cq (tap-hold-next-release 130 (tap-macro c (around lalt lsft) @ruhx) q)
@@ -206,6 +217,8 @@
   hx_I (tap-macro I (around lalt lsft) @ruhx)
   hx_O (tap-macro O (around lalt lsft) @ruhx)
   es2en (tap-macro esc (around lalt lsft) (layer-switch enhelix))
+  rt2en (tap-macro ret (around lalt lsft) (layer-switch enhelix))
+  
 
   p_h #(p (layer-rem sticky-helix) (around lalt lsft))
   ,_h #(, (layer-rem sticky-helix) (around lalt lsft))

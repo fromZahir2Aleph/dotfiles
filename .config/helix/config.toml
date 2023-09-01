@@ -3,7 +3,11 @@ rulers = [80, 120]
 mouse = true
 line-number = "relative"
 
+[editor.soft-wrap]
+enable = true
+
 [keys.normal]
+j = "search"
 h = "jump_to_identifier_label"
 l = "jump_to_str_label"
 "'" = "collapse_selection"
