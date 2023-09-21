@@ -115,18 +115,18 @@
 (deflayer nav-edit
   esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12    @norm
   grv     3      2      1      0      4      5      6      7      8      9      -      =      caps              
-  @capsw  @m3    ret    bspc   tab    @altf4 z      XX     f6     f5     u      [      ]      \               
+  @capsw  @m3    ret    bspc   tab    del    z      XX     f6     f5     u      [      ]      \               
   @redo   @cut   @copy  @pst   @undo  @ctl_w f6     left   down   up     right  J      ret                                                
-  @st_tb  @ptab  @ntab  @pw    @nw    del    x    KeyHome  @lsq   @num& KeyEnd  rsft          ;;up              
+  @st_tb  @ptab  @ntab  @pw    @nw    @altf4 x    KeyHome  @lsq   @num& KeyEnd  rsft          ;;up              
   lctl  KeyMenu  @nvoff lalt          spc           ralt   rctl                        ;;left   down   rght
 )
 
 (deflayer runav-edit
   esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12    @norm
   grv     3      2      1      0      4      5      6      7      8      9      -      =      caps              
-  @capsw  @m3    ret    bspc   tab    @altf4 z      XX     f6     f5     u      [      ]      \               
+  @capsw  @m3    ret    bspc   tab    del    z      XX     f6     f5     u      [      ]      \               
   @redo   @cut   @copy  @pst   @undo  @ctl_w f6     left   down   up     right  J      ret                                                
-  @st_tb  @ptab  @ntab  @pw    @nw    del    x    KeyHome  @ru_ls @num& KeyEnd   rsft          ;;up              
+  @st_tb  @ptab  @ntab  @pw    @nw    @altf4    x    KeyHome  @ru_ls @num& KeyEnd   rsft          ;;up              
   lctl  KeyMenu  @nvoff lalt          spc           ralt   rctl                        ;;left   down   rght
 )
 
@@ -135,7 +135,7 @@
   grv     3      2      1      0      4      5      6      7      8      9      -      =      caps              
   @capsw  k      ret    bspc   f6     v      XX     @._:   @,_'   esc    q      [      ]      \               
   esc     @alt_3 @met_2 @sft_1 @ctl_0 4      5      @ctl_6 @sft_7 @met_8 @alt_9 XX     ret                                                
-  @st_tb  m      6      7      @d_nv  del    x      @nm2bs y      @sym   u      rsft           ;;up              
+  @st_tb  m      6      7      @d_nv  @altf4    x      @nm2bs y      @sym   u      rsft           ;;up              
   lctl KeyMenu   @nv_in lalt   spc           ralt   rctl                        ;;left   down   rght
 )
 

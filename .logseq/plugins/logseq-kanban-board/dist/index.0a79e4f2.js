@@ -23728,13 +23728,13 @@ async function main() {
     logseq.App.onMacroRendererSlotted(queryRenderer);
     logseq.Editor.registerSlashCommand("Kanban Board", ()=>{
         openRefDialog(async (blockRef, property)=>{
-            await logseq.Editor.insertAtEditingCursor(`{{renderer :kboard, ${blockRef}, ${property}}}`);
+            await logseq.Editor.insertAtEditingCursor(`{{renderer :kboard, ${blockRef}, ${property}, cover, 260px}}`);
         });
     });
     logseq.Editor.registerSlashCommand("Kanban Board (Empty)", async ()=>{
         const currentBlock = await logseq.Editor.getCurrentBlock();
         const uuid = await logseq.Editor.newBlockUUID();
-        await logseq.Editor.insertAtEditingCursor(`{{renderer :kboard, ${uuid}, list}}`);
+        await logseq.Editor.insertAtEditingCursor(`{{renderer :kboard, ${uuid}, list, cover, 260px}}`);
         await logseq.Editor.insertBlock(currentBlock.uuid, "Kanban", {
             sibling: true,
             customUUID: uuid
@@ -23742,7 +23742,7 @@ async function main() {
     });
     logseq.Editor.registerSlashCommand("Kanban Board (Query)", ()=>{
         openQueryDialog(async (name, property, propertyValues)=>{
-            await logseq.Editor.insertAtEditingCursor(propertyValues ? `{{renderer :kboard-query, ${name}, ${property}, ${propertyValues}}}` : `{{renderer :kboard-query, ${name}, ${property}}}`);
+            await logseq.Editor.insertAtEditingCursor(propertyValues ? `{{renderer :kboard-query, ${name}, ${property}, ${propertyValues}, cover, 260px}}` : `{{renderer :kboard-query, ${name}, ${property}, cover, 260px}}`);
             const currentBlock = await logseq.Editor.getCurrentBlock();
             await logseq.Editor.insertBlock(currentBlock.uuid, `{{query (property :${property})}}`);
         });
@@ -23750,13 +23750,13 @@ async function main() {
     logseq.Editor.registerSlashCommand("Kanban Board (Task Query)", async ()=>{
         const lists = preferredWorkflow === "now" ? "LATER, NOW, DONE" : "TODO, DOING, DONE";
         const currentBlock = await logseq.Editor.getCurrentBlock();
-        await logseq.Editor.insertAtEditingCursor(`{{renderer :kboard-marker-query, Kanban, ${lists}}}`);
+        await logseq.Editor.insertAtEditingCursor(`{{renderer :kboard-marker-query, Kanban, ${lists}, cover, 260px}}`);
         await logseq.Editor.insertBlock(currentBlock.uuid, "{{query (task LATER TODO)}}");
     });
     logseq.Editor.registerBlockContextMenuItem(t$2("Kanban Board"), async ({ uuid  })=>{
         openRefDialog(uuid, async (blockRef, property)=>{
             await persistBlockUUID(uuid);
-            await logseq.Editor.insertBlock(uuid, `{{renderer :kboard, ${uuid}, ${property}}}`, {
+            await logseq.Editor.insertBlock(uuid, `{{renderer :kboard, ${uuid}, ${property}, cover, 260px}}`, {
                 sibling: true,
                 before: true
             });
@@ -24328,7 +24328,7 @@ async function kanbanRenderer({ slot , payload: { arguments: args , uuid  }  }) 
     setTimeout(async ()=>{
         const rootBlock = await logseq.Editor.getBlock(blockRef);
         const offHook = watchBlockChildrenChange(rootBlock.id, key, debounce((blocks, txData, txMeta)=>{
-            renderKanban(key, uuid, blockRef, property, coverProp);
+            renderKanban(key, uuid, blockRef, property, coverProp, columnWidth);
         }, 300));
         offHooks[key] = offHook;
         renderKanban(key, uuid, blockRef, property, coverProp, columnWidth);
@@ -24606,7 +24606,7 @@ async function renderMarkerQueryKanban(id, uuid, name, lists, coverProp, columnW
         board: data,
         coverProp: coverProp,
         columnWidth: columnWidth,
-        onRefresh: ()=>renderMarkerQueryKanban(id, uuid, name, lists, columnWidth)
+        onRefresh: ()=>renderMarkerQueryKanban(id, uuid, name, lists, coverProp, columnWidth)
     }), el);
 }
 async function renderQueryKanban(id, uuid, name, list, listValues, coverProp, columnWidth) {
@@ -24619,7 +24619,7 @@ async function renderQueryKanban(id, uuid, name, list, listValues, coverProp, co
         list: list,
         coverProp: coverProp,
         columnWidth: columnWidth,
-        onRefresh: ()=>renderQueryKanban(id, uuid, name, list, listValues, columnWidth)
+        onRefresh: ()=>renderQueryKanban(id, uuid, name, list, listValues, coverProp, columnWidth)
     }), el);
 }
 async function getMarkerQueryBoardData(uuid, name, statuses, coverProp) {

@@ -51,11 +51,14 @@ matches:
               <html lang="en">
                 <head>
                   <meta charset="UTF-8">
-                  <title>My First Webpage</title>
+                  <title></title>
                 </head>
 
                 <body>
 
                 </body>
               </html>
-
+  
+  # Print my version of Lorem ipsum
+  - trigger: ":lrm"
+    replace: "Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
