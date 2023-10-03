@@ -7,7 +7,16 @@ line-number = "relative"
 enable = true
 
 [keys.normal]
-j = "search"
+L = "search"
+h = "jump_to_identifier_label"
+l = "jump_to_str_label"
+"'" = "collapse_selection"
+"A-'" = "flip_selections"
+C-l = "copy_selection_on_next_line"
+A-l = "copy_selection_on_prev_line"
+
+[keys.select]
+L = "search"
 h = "jump_to_identifier_label"
 l = "jump_to_str_label"
 "'" = "collapse_selection"

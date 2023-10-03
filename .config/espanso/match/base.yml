@@ -62,3 +62,7 @@ matches:
   # Print my version of Lorem ipsum
   - trigger: ":lrm"
     replace: "Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
+
+  # Launch file in helix editor
+  - trigger: ":kns"
+    replace: "konsole -e hx "   
