@@ -6,8 +6,8 @@ scope = "source.markdown"
 roots = []
 
 [language-server.ltex]
-command = "/home/zelim/opt/ltex-ls/bin/ltex-ls"
+command = "/home/zelim/opt/lsp/ltex-ls/bin/ltex-ls"
 config = { ltex.language = "ru-RU" }
 
 [language-server.marksman]
-command= "/home/zelim/.local/bin/marksman"
+command= "/home/zelim/opt/lsp/marksman"

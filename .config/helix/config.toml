@@ -1,3 +1,5 @@
+theme = "catppuccin_macchiato"
+
 [editor]
 rulers = [80, 120]
 mouse = true
@@ -5,6 +7,25 @@ line-number = "relative"
 
 [editor.soft-wrap]
 enable = true
+
+[editor.cursor-shape]
+normal = "block"
+insert = "bar"
+select = "underline"
+
+[editor.indent-guides]
+render = true
+character = "|" # Some characters that work well: "▏", "┆", "┊", "⸽"
+skip-levels = 1
+
+[editor.statusline]
+left = ["mode", "spinner"]
+center = ["file-name"]
+right = ["diagnostics", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
+separator = "│"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
 
 [keys.normal]
 L = "search"
@@ -23,3 +44,14 @@ l = "jump_to_str_label"
 "A-'" = "flip_selections"
 C-l = "copy_selection_on_next_line"
 A-l = "copy_selection_on_prev_line"
+
+[keys.normal."#"]
+b = ":sh helix-wezterm.sh blame"
+c = ":sh helix-wezterm.sh check"
+e = ":sh helix-wezterm.sh explorer"
+f = ":sh helix-wezterm.sh fzf"
+g = ":sh helix-wezterm.sh lazygit"
+o = ":sh helix-wezterm.sh open"
+r = ":sh helix-wezterm.sh run"
+s = ":sh helix-wezterm.sh test_single"
+t = ":sh helix-wezterm.sh test_all"

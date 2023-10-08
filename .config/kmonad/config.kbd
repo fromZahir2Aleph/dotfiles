@@ -34,18 +34,18 @@
 (deflayer ruhelix 
   esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12    @norm
   grv     3      2      1      0      4      5      6      7      8      9      -      =      caps              
-  @capsw  p      ret    bspc   tab    ,      ;      @/_:   @,_o   @es2en x      [      ]      \               
-  v       @alt_h @met_c @st_n2 @ctl_y @r_w   @q_a   @ct_t2 @sft_j @met_f @alt_b .      ret                        
-  @st_tb  @l_i   @g_q   @hx_k  @dnvr  u      [      @e_nv  @z_`   @m_]   @s_'   rsft           ;;up              
+  @capsw  p      ret    bspc   tab    ,      ;      @/_:   @,_a   @es2en x      [      ]      \               
+  v       @alt_h @met_c @st_n2 @ctl_y @r_w   q      @ct_t2 @sft_j @met_f @alt_b .      ret                        
+  @st_tb  @l_o   @g_i   @hx_k  @dnvr  u      [      @e_nv  @z_`   @m_]   @s_'   rsft           ;;up              
   lctl KeyMenu   @nv_in @nv_tm spc           ralt   rctl                        ;;left   down   rght
 )
 
 (deflayer ruhelix2 
   esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12    @norm
   grv     3      2      1      0      4      5      6      7      8      9      -      =      caps              
-  @capsw  p      ret    bspc   tab    ,      ;      @/_:   @,_o   @es2en x      [      ]      \               
-  v       @alt_h @met_c @st_n2 @ctl_y @r_w   @q_a   @ct_t2 @sft_j @met_f @alt_b .      ret                        
-  @st_tb  @l_i   @g_q   @hx_k  @dnvr  u      [      @e_nv  @z_`   @m_]   @s_'   rsft           ;;up              
+  @capsw  p      ret    bspc   tab    ,      ;      @/_:   @,_a   @es2en x      [      ]      \               
+  v       @alt_h @met_c @st_n2 @ctl_y @r_w   q      @ct_t2 @sft_j @met_f @alt_b .      ret                        
+  @st_tb  @l_o   @g_i   @hx_k  @dnvr  u      [      @e_nv  @z_`   @m_]   @s_'   rsft           ;;up              
   lctl KeyMenu   @nv_in @nv_tm spc           ralt   rctl                        ;;left   down   rght
 )
 
@@ -61,7 +61,7 @@
 (deflayer sticky-helix
   esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12    @norm
   grv     3      2      1      0      4      5      6      7      8      9      -      =      caps              
-  @capsw  @p_h   ret    bspc   tab    @,_h   @;_h   @/:_h  @,_o   esc    @x_h   [      ]      \               
+  @capsw  @p_h   ret    bspc   tab    @,_h   @;_h   @/:_h  @,_'   esc    @x_h   [      ]      \               
   @v_h    @r_h   @c_h   @n_h   @y_h   @rw_h  @qa_h  @t_h   @j_h   @f_h   @b_h   @._h   ret                        
   @st_tb  @lo_h  @gi_h  @k_h   @d_h   @u_h   @[_h   @e_h   @z`_h  @m]_h  @s'_h  rsft           ;;up              
   lctl KeyMenu   @nv_in @nv_tm spc           ralt   rctl                        ;;left   down   rght
@@ -70,9 +70,9 @@
 (deflayer russian 
   esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12    @norm
   grv     3      2      1      0      4      5      6      7      8      9      -      =      caps              
-  @capsw  p      ret    bspc   tab    ,      ;      @/_:   @,_o   esc    x      [      ]      \               
-  v       @alt_h @met_c @st_n2 @ctl_y @r_w   @q_a   @ct_t2 @sft_j @met_f @alt_b .      ret                        
-  @st_tb  @l_i   @g_q   @k_en  @dnvr  u      [      @e_nv  @z_`   @m_]   @s_'   rsft           ;;up              
+  @capsw  p      ret    bspc   tab    ,      ;      @/_:   @,_a   esc    x      [      ]      \               
+  v       @alt_h @met_c @st_n2 @ctl_y @r_w   q      @ct_t2 @sft_j @met_f @alt_b .      ret                        
+  @st_tb  @l_o   @g_i   @k_en  @dnvr  u      [      @e_nv  @z_`   @m_]   @s_'   rsft           ;;up              
   lctl KeyMenu   @nv_in @nv_tm spc           ralt   rctl                        ;;left   down   rght
 )
 
@@ -80,8 +80,8 @@
   esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11     f12    @norm
   grv     3      2      1      0      4      5      6      7      8      9      -       =      bspc             
   @capsw  ~      ret    bspc   ?      |      `      @._:   @,_'   @sm2bs "      [       ]      \              
-  ^       @alt_! @met_- @sft_+ @ctl_= #      &      @ctlbr @sftbr @met_[ @alt_] '       ret                     
-  @st_tb  <      /      *      @>_nv  @      $      @;_nv  %      @num   \\     rsft           ;;up                
+  ^       @alt_! @met_- @sft_+ @ctl_= ;      &      @ctlbr @sftbr @met_[ @alt_] '       ret                     
+  @st_tb  <      /      *      @>_nv  @      $      @#_nv  %      @num   \\     rsft           ;;up                
   lctl KeyMenu   @nv_in @nv_tm spc           ralt   rctl                        ;;left   down   rght
 )
 
@@ -274,7 +274,7 @@
   ru_2[ (tap-macro-release (tap-macro-release (around lalt lsft) [ [) (around lalt lsft))
   ru_2] (tap-macro-release (tap-macro-release (around lalt lsft) ] ]) (around lalt lsft))
   >_nv (tap-hold-next-release 130 > (layer-toggle nav-edit))
-  ;_nv (tap-hold-next-release 130 ; (layer-toggle nav-edit))
+  #_nv (tap-hold-next-release 130 # (layer-toggle nav-edit))
 
   alt_3 (tap-hold-next-release 130 3 lalt)
   sft_1 (tap-hold-next-release 130 1 lsft)
@@ -309,14 +309,13 @@
   alt_b (tap-hold-next-release 130 b (around lalt @tb))
   met_f (tap-hold-next-release 130 f (around lmet @tb))  
   k_en (tap-hold-next-release 130 k (tap-macro-release @hb (around lalt lsft )))
-  ,_o (tap-hold-next-release 130 (around lsft /) o)
+  ,_a (tap-hold-next-release 130 (around lsft /) a)
   /_: (tap-hold-next-release 130 / (around lsft 6))
   z_` (tap-hold-next-release 130 z `)
   s_' (tap-hold-next-release 130 s ')
-  q_a (tap-hold-next-release 130 q a)
-  g_q  (tap-hold-next-release 130 g (layer-toggle leader-keys))
+  g_i  (tap-hold-next-release 130 i (layer-toggle leader-keys))
   r_w (tap-hold-next-release 130 r w)
-  l_i (tap-hold-next-release 130 l i)
+  l_o (tap-hold-next-release 130 l o)
   m_] (tap-hold-next-release 130 m ])
   dnvr (tap-hold-next-release 130 d (layer-toggle runav-edit))
   e_nv (tap-hold-next-release 130 e (layer-toggle nav-edit))
