@@ -313,7 +313,7 @@
   /_: (tap-hold-next-release 130 / (around lsft 6))
   z_` (tap-hold-next-release 130 z `)
   s_' (tap-hold-next-release 130 s ')
-  g_i  (tap-hold-next-release 130 i (layer-toggle leader-keys))
+  g_i  (tap-hold-next-release 130 g i)
   r_w (tap-hold-next-release 130 r w)
   l_o (tap-hold-next-release 130 l o)
   m_] (tap-hold-next-release 130 m ])

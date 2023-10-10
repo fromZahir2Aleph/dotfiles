@@ -5,6 +5,23 @@ file-types = ["md", "txt"]
 scope = "source.markdown"
 roots = []
 
+[[language]]
+name = "python"
+language-servers = ["pyright"]
+scope = "source.python"
+injection-regex = "python"
+file-types = ["py","pyi","py3","pyw","ptl",".pythonstartup",".pythonrc","SConstruct"]
+shebangs = ["python"]
+roots = ["setup.py", "setup.cfg", "pyproject.toml"]
+comment-token = "#"
+
+[language-server.pyright]
+command = "pyright-langserver"
+args = ["--stdio"]
+indent = { tab-width = 4, unit = "    " }
+# will get "Async jobs timed out" errors if this empty config is not added
+config = {}
+
 [language-server.ltex]
 command = "/home/zelim/opt/lsp/ltex-ls/bin/ltex-ls"
 config = { ltex.language = "ru-RU" }
