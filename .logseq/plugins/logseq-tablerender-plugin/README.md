@@ -1,25 +1,93 @@
-[[:gift_heart: Sponsor this project on Github](https://github.com/sponsors/hkgnp) or [:coffee: Get me a coffee](https://www.buymeacoffee.com/hkgnp.dev) if you like this plugin!
+[:gift_heart: Sponsor this project on Github](https://github.com/sponsors/hkgnp) or [:coffee: Get me a coffee](https://www.buymeacoffee.com/hkgnp.dev) if you like this plugin!
 
 # Overview
 
-Render tables with basic math functions using data from your blocks.
+Render tables with basic math functions using data from your blocks. Just use the slash command `/Render table` to get started!
 
-Just use the slash command `/table render` to get started!
+# Instructions
 
-![](/screenshots/demo.gif)
+## Basic table
 
-If you do not want the summary table (with the sum, average and median), you can add "nosum" as a flag.
+![basic table](screenshots/basic-table.png)
+To draw a table above, you can use any one of the below approaches, with the flags `data`, `rows` or `cols`.
 
-![](/screenshots/nosum.png)
+1) `data`
+```md
+- data
+    - Category
+        - Fruits
+        - Vegetables
+        - Fruits and Vegetables
+    - Fresh Produce
+        - Apples
+        - Lettuce
+        - Tomatoes
+    - Price
+        - 1
+        - 3
+        - 5
+```
 
-By default, each block will be a column in the table. Add the "rows" flag to change this behavior so that each block becomes a row, and nested blocks become columns.
+2) `rows` 
+```md
+- rows
+	- Category
+		- Fresh Produce
+			- Price
+	- Fruits
+		- Apples
+			- 1
+	- Vegetables
+		- Lettuce
+			- 3
+	- Fruits and Vegetables
+		- Tomatoes
+			- 5
+```
 
-![](/screenshots/demo_rows.gif)
+3) `cols` 
+```md
+- cols
+	- Category
+		- Fresh Produce
+		- Price
+	- Fruits
+		- Apples
+		- 1
+	- Vegetables
+		- Lettuce
+		- 3
+	- Fruits and Vegetables
+		- Tomatoes'
+		- 5
+```
+
+## Table with basic stats
+
+The following basic statistical calculations are available:
+- Sum (sum)
+- Average (average)
+- Median (median)
+- Mode (mode)
+- Variance (variance)
+- Standard Deviation (sd)
+- Sample Standard Deviation (ssd)
+- Percentile (percentile)*
+
+To use any of the above, use its shortcut (in brackets above) with the columns that you would like to compute (`<shortcut>-<column>`).
+
+### Example
+
+1) `sum-3 average-3 median-3 mode-3` will render:
+![stats-01](screenshots/stats-01.png)
+
+2) *Percentile requires an additional flag to indicate the perecntile that you would like to compute. `percentile-3-50` will compute the 50th percentile of the 3rd column.
+![percentile](screenshots/percentile.png)
 
 # Installation
 
-For now, only manual installation is possible.
+Look for `logseq-tablerender-plugin` in the marketplace and install from there.
 
-1. Clone the repo
-2. Run `npm i & npm run build`
-3. Load plugin manually in Logseq
+# Credits
+
+[stats-lite](https://github.com/brycebaril/node-stats-lite) for providing the calculations. 

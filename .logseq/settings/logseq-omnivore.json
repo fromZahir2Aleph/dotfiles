@@ -5,7 +5,7 @@
   "customQuery": "label:Logseq",
   "frequency": "60",
   "graph": "downstream",
-  "syncAt": "2023-10-10T00:00:03",
+  "syncAt": "2023-10-16T21:47:33",
   "highlightOrder": "the location of highlights in the article",
   "isSinglePage": true,
   "pageName": "Omnivore",
@@ -15,6 +15,6 @@
   "endpoint": "https://api-prod.omnivore.app/api/graphql",
   "disabled": false,
   "version": "v1.13.6",
-  "syncJobId": 13,
+  "syncJobId": 12,
   "loading": false
 }

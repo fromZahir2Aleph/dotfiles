@@ -15,12 +15,22 @@ shebangs = ["python"]
 roots = ["setup.py", "setup.cfg", "pyproject.toml"]
 comment-token = "#"
 
-[language-server.pyright]
-command = "pyright-langserver"
-args = ["--stdio"]
-indent = { tab-width = 4, unit = "    " }
-# will get "Async jobs timed out" errors if this empty config is not added
-config = {}
+[[language]]
+name = "typst"
+language-servers = ["typst"]
+scope = "source.typst"
+injection-regex = "^typst$"
+file-types = ["typ"]
+comment-token = "//"
+indent = { tab-width = 2, unit = "  " }
+roots = []
+
+[[language]]
+name = "sql"
+language-servers = ["sql-language-server"]
+scope = "source.sql"
+injection-regex = "sql"
+file-types = ["sql"]
 
 [language-server.ltex]
 command = "/home/zelim/opt/lsp/ltex-ls/bin/ltex-ls"
@@ -28,3 +38,17 @@ config = { ltex.language = "ru-RU" }
 
 [language-server.marksman]
 command= "/home/zelim/opt/lsp/marksman"
+
+[language-server.pyright]
+command = "pyright-langserver"
+args = ["--stdio"]
+indent = { tab-width = 4, unit = "    " }
+# will get "Async jobs timed out" errors if this empty config is not added
+config = {}
+
+[language-server.typst]
+command = "typst-lsp"
+
+[language-server.sql-language-server]
+command = "sql-language-server"
+args = ["up", "--method", "stdio"]

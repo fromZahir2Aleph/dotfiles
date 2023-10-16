@@ -18,9 +18,9 @@
   "contentHeading": null,
   "alwaysShowNewBlockBullet": false,
   "otherHeading": null,
+  "disabled": false,
   "tabsOnTop": true,
   "headerFlashcardsButton": false,
   "hideBottomHelpButton": false,
-  "pluginUpdateNotify": true,
-  "disabled": false
+  "pluginUpdateNotify": true
 }
