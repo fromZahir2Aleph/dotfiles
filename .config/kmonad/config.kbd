@@ -308,7 +308,7 @@ Leader keys and the layers they lead to
   met_[ (tap-hold-next-release 130 [ (around lmet @tb))
   >_nv (tap-hold-next-release 130 > (layer-toggle nav-edit))
   #_nv (tap-hold-next-release 130 # (layer-toggle nav-edit))
-  sm2bs (layer-rem symbols)
+  sm2bs (tap-hold-next-release 130 tab (layer-rem symbols))
 
   ;; Numbers
   alt_3 (tap-hold-next-release 130 3 lalt)
@@ -319,7 +319,7 @@ Leader keys and the layers they lead to
   ctl_6 (tap-hold-next-release 130 6 rctl)
   sft_7 (tap-hold-next-release 130 7 rsft)
   alt_9 (tap-hold-next-release 130 9 lalt)
-  nm2bs (tap-hold-next-release 130 esc (layer-rem numbers))
+  nm2bs (tap-hold-next-release 130 tab (layer-rem numbers))
   
   ;; Navigation and edit
   undo (tap-hold-next-release 130 (around lctl z) lctl)
