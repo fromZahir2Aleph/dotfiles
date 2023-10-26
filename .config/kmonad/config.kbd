@@ -84,7 +84,7 @@
 (deflayer symbols
   esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11     f12    @norm
   grv     3      2      1      0      4      5      6      7      8      9      -       =      bspc             
-  @capsw  ~      @rt_lk bspc   @sm2bs @      "      @._:   @,_'   @es_lk `      [       ]      \              
+  @capsw  ~      @rt_lk bspc   @sm2bs @      XX     @._:   @,_'   @es_lk `      [       ]      \              
   ^       @alt_! @met_- @sft_+ @ctl_= ;      &      @ctlbr @sftbr @met_[ @alt_] ~       ret                     
   @st_tb  <      /      *      @>_nv  ?      $      @#_nv  %      @num   \\     rsft           ;;up                
   lctl KeyMenu   @nv_in @nv_tm spc           ralt   rctl                        ;;left   down   rght
@@ -143,22 +143,22 @@ Leader keys and the layers they lead to
 (deflayer sym2
   esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11     f12    @norm
   grv     3      2      1      0      4      5      6      7      8      9      -       =      bspc             
-  @capsw  ~      @rt_lk bspc   @sm2bs @      "      @._:   @,_'   esc    `      [       ]      \              
-  ^       @alt_! @met_- @sft_+ @ctl_= ;      &      @ctlbr @sftbr @met_[ @alt_] ~       ret                     
-  @st_tb  <      /      *      @>_nv  ?      $      @#_nv  %      @num   @&\    rsft           ;;up                
+  @capsw  @~&    ret    bspc   tab    @@&    XX     @._:&  @,_'&  esc    @`&    [       ]      \              
+  @^&     @!&    @-&    @sft+& @=&    @;&    @&&    @lbr&  @rbr&  @[&    @]&    @~&     ret                     
+  @st_tb  @<&    @/&    @*&    @>&    @?&    @$&    @#&    @%&    XX     @\&    rsft           ;;up                
   lctl KeyMenu   @nv_in @nv_tm spc           ralt   rctl                        ;;left   down   rght
 )
 
 (deflayer num2
   esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12    @norm
   grv     3      2      1      0      4      5      6      7      8      9      -      =      caps              
-  @capsw  k      @rt_lk bspc   f6     v      XX     @._:   @,_'   esc    q      [      ]      \               
+  @capsw  k      ret    bspc   f6     v      XX     @._:   @,_'   esc    q      [      ]      \               
   esc     @3&    @2&    @1&    @0&    @4&    @5&    @6&    @7&    @8&    @9&    XX     ret                                                
-  @st_tb  m      6      7      @d_nv  p      x      XX     y      @sym   u      rsft           ;;up              
+  @st_tb  m      6      @100   @d_nv  p      x      XX     y      XX     u      rsft           ;;up              
   lctl KeyMenu   @nv_in lalt   spc           ralt   rctl                        ;;left   down   rght
 )
 
-(deflayer logseq
+(deflayer markdown
   esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11     f12    @norm
   grv     3      2      1      0      4      5      6      7      8      9      -       =      bspc             
   @capsw  ~      @rt_lk bspc   @?!    @      `      @._:   @,_'   esc    "      [       ]      \              
@@ -167,7 +167,7 @@ Leader keys and the layers they lead to
   lctl  KeyMenu  lmet   @nv_tm spc           ralt   rctl                        ;;left   down   rght
 )
 
-(deflayer rulogseq
+(deflayer ru_md
   esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11     f12    @norm
   grv     3      2      1      0      4      5      6      7      8      9      -       =      bspc             
   @capsw  ~      ret    ;      bspc   @      `      @._:   @,_'   esc    "      [       ]      \              
@@ -319,6 +319,7 @@ Leader keys and the layers they lead to
   ctl_6 (tap-hold-next-release 130 6 rctl)
   sft_7 (tap-hold-next-release 130 7 rsft)
   alt_9 (tap-hold-next-release 130 9 lalt)
+  100 (tap-macro 1 0 0)
   nm2bs (tap-hold-next-release 130 tab (layer-rem numbers))
   
   ;; Navigation and edit
@@ -345,7 +346,31 @@ Leader keys and the layers they lead to
   
   ;; Second symbol
   sym*2 (around-next (layer-toggle sym2))
-  &\ (around \ (around-next @ts))
+  \& (around \\ (around-next @ts))
+  @& (around @ (around-next @ts))
+  ._:& #((tap-hold-next-release 130 . :) (around-next @ts))
+  ,_'& #((tap-hold-next-release 130 , ') (around-next @ts))
+  `& (around ` (around-next @ts))
+  ^& (around ^ (around-next @ts))
+  !& (around ! (around-next @ts))
+  -& (around - (around-next @ts))
+  sft+& (tap-macro-release (tap-hold-next-release 130 + (around lsft (around-next @ts))) (around-next @ts))
+  =& (around = (around-next @ts))
+  ;& (around ; (around-next @ts))
+  && (around & (around-next @ts))
+  lbr& (around \( (around-next @ts))
+  rbr& (around \) (around-next @ts))
+  [& (around [ (around-next @ts))
+  ]& (around ] (around-next @ts))
+  ~& (around ~ (around-next @ts))
+  <& (around < (around-next @ts))
+  /& (around / (around-next @ts))
+  *& (around * (around-next @ts))
+  >& (around > (around-next @ts))
+  ?& (around ? (around-next @ts))
+  $& (around $ (around-next @ts))
+  #& (around # (around-next @ts))
+  %& (around % (around-next @ts))
 
   ;; Second number
   num*2 (around-next (layer-toggle num2))
@@ -360,9 +385,9 @@ Leader keys and the layers they lead to
   9& (around 9 (around-next @tn))
   0& (around 0 (around-next @tn))
 
-  ;; Logseq
-  ls (around-next (layer-toggle logseq))
-  ru_ls (around-next (layer-toggle rulogseq))
+  ;; Markdown
+  ls (around-next (layer-toggle markdown))
+  ru_ls (around-next (layer-toggle ru_md))
   -= #(- -)
   += #(+ +)
   2= #(= =)
