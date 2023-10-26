@@ -19,13 +19,13 @@
  :logseq-todo-plugin {:version "v1.19.0", :repo "ahonn/logseq-plugin-todo", :effect true, :theme false}
  :logseq-todo-master {:version "v1.10.3", :repo "pengx17/logseq-plugin-todo-master", :effect false, :theme false}
  :logseq-automatic-linker {:version "1.5.1", :repo "sawhney17/logseq-automatic-linker", :effect false, :theme false}
- :logseq-omnivore {:version "v1.13.6", :repo "omnivore-app/logseq-omnivore", :effect false, :theme false}
+ :logseq-omnivore {:version "v1.14.1", :repo "omnivore-app/logseq-omnivore", :effect false, :theme false}
  :logseq-interstitial {:version "0.1.5", :repo "QWxleA/logseq-interstitial-heading-plugin", :effect false, :theme false}
  :logseq-task-management-shortcuts {:version "v0.0.3", :repo "vipzhicheng/logseq-plugin-task-management-shortcuts", :effect false, :theme false}
  :logseq-plugin-heading-level-shortcuts {:version "v0.0.6", :repo "vipzhicheng/logseq-plugin-heading-level-shortcuts", :effect false, :theme false}
  :logseq-kanban-board {:version "v1.17.5", :repo "sethyuan/logseq-plugin-kanban-board", :effect true, :theme false}
  :logseq-awesome-props {:version "v1.10.0", :repo "yoyurec/logseq-awesome-props", :effect true, :theme false}
  :logseq-awesome-styler {:version "v3.7.1", :repo "yoyurec/logseq-awesome-styler", :effect true, :theme false}
- :logseq-awesome-ui {:version "v2.3.4", :repo "yoyurec/logseq-awesome-ui", :effect true, :theme false}
+ :logseq-awesome-ui {:version "v2.4.0", :repo "yoyurec/logseq-awesome-ui", :effect true, :theme false}
  :logseq-awesome-content {:version "v1.2.1", :repo "yoyurec/logseq-awesome-content", :effect true, :theme false}
  :logseq-sliders-plugin {:version "1.1.5", :repo "hkgnp/logseq-sliders-plugin", :effect true, :theme false}}
