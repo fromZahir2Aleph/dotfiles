@@ -25,7 +25,6 @@ if [ -d ~/.bashrc.d ]; then
 fi
 
 unset rc
-eval "$(starship init bash)"
 
 alias config='/usr/bin/git --git-dir=/home/zelim/.cfg/ --work-tree=/home/zelim'
 . "$HOME/.cargo/env"
