@@ -18,6 +18,15 @@ render = true
 character = "|" # Some characters that work well: "▏", "┆", "┊", "⸽"
 skip-levels = 1
 
+[editor.file-picker]
+hidden = false
+parents = false
+git-ignore = false
+
+[editor.lsp]
+display-messages = true
+display-inlay-hints = true
+
 [editor.statusline]
 left = ["mode", "spinner"]
 center = ["file-name"]
@@ -35,6 +44,8 @@ l = "jump_to_str_label"
 "A-'" = "flip_selections"
 C-l = "copy_selection_on_next_line"
 A-l = "copy_selection_on_prev_line"
+# Use system clipboard
+y = "yank_main_selection_to_clipboard"
 
 [keys.select]
 L = "search"
