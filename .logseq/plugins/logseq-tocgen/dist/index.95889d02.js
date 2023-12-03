@@ -5194,7 +5194,8 @@ var zhCN = {
 	Delete: Delete,
 	"Open TOC": "打开 TOC",
 	"No page detected.": "未检测到页面。",
-	"Specify a maximum number of times to scroll down to load lazy content.": "指定懒加载内容时的最大向下滚动次数。"
+	"Specify a maximum number of times to scroll down to load lazy content.": "指定懒加载内容时的最大向下滚动次数。",
+	"It defines a shortcut to open a TOC in the Contents page for the current page.": "设置一个快捷键，为当前页面打开在Contents页面打开一个目录。"
 };
 
 const TB_ICON = `<svg t="1675661268312" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1525" width="200" height="200"><path d="M128 384l597.333333 0 0-85.333333-597.333333 0 0 85.333333zM128 554.666667l597.333333 0 0-85.333333-597.333333 0 0 85.333333zM128 725.333333l597.333333 0 0-85.333333-597.333333 0 0 85.333333zM810.666667 725.333333l85.333333 0 0-85.333333-85.333333 0 0 85.333333zM810.666667 298.666667l0 85.333333 85.333333 0 0-85.333333-85.333333 0zM810.666667 554.666667l85.333333 0 0-85.333333-85.333333 0 0 85.333333z" p-id="1526"></path></svg>`;
@@ -5430,6 +5431,15 @@ async function main() {
         key: t$2("open-toc"),
         template: `<a class="kef-tocgen-tb-icon" data-on-click="openTOC" title="${t$2("Open TOC")}">${TB_ICON}</a>`
     });
+    logseq.App.registerCommandPalette({
+        key: "open-toc",
+        label: t$2("Open TOC"),
+        ...logseq.settings?.openShortcut ? {
+            keybinding: {
+                binding: logseq.settings.openShortcut
+            }
+        } : {}
+    }, openTOC);
     parent.document.getElementById("main-container");
     const mainContentContainer = parent.document.getElementById("main-content-container");
     if (!logseq.settings?.hideBackTop) {
@@ -5553,6 +5563,12 @@ async function main() {
             type: "boolean",
             default: false,
             description: t$2("It defines whether or not to show tags in TOC.")
+        },
+        {
+            key: "openShortcut",
+            type: "string",
+            default: "",
+            description: t$2("It defines a shortcut to open a TOC in the Contents page for the current page.")
         },
         {
             key: "hideBackTop",
@@ -5873,6 +5889,14 @@ async function openPageTOC(pageName) {
     await waitMs(50);
     await logseq.Editor.exitEditingMode();
 }
+async function openTOC() {
+    const pageName = await getCurrentPageName();
+    if (pageName) {
+        openPageTOC(pageName);
+    } else {
+        logseq.UI.showMsg(t$2("No page detected.", "warn"));
+    }
+}
 function onScroll(e) {
     lastScrollTop = e.target.scrollTop;
 }
@@ -5889,13 +5913,6 @@ const model = {
             top: mainContentContainer.scrollHeight
         });
     },
-    async openTOC () {
-        const pageName = await getCurrentPageName();
-        if (pageName) {
-            openPageTOC(pageName);
-        } else {
-            logseq.UI.showMsg(t$2("No page detected.", "warn"));
-        }
-    }
+    openTOC
 };
 logseq.ready(model, main).catch(console.error);

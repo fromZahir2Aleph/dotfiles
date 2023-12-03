@@ -30,3 +30,6 @@ alias config='/usr/bin/git --git-dir=/home/zelim/.cfg/ --work-tree=/home/zelim'
 . "$HOME/.cargo/env"
 
 HELIX_RUNTIME=/home/zelim/opt/repos/helix/runtime
+
+export EDITOR="hx"
+export VISUAL="hx"

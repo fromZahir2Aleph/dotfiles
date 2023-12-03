@@ -16685,7 +16685,8 @@ function useBoardName(name, uuid) {
             case "Enter":
                 {
                     e.preventDefault();
-                    await logseq.Editor.updateBlock(uuid, e.target.value);
+                    const block = await logseq.Editor.getBlock(uuid);
+                    await logseq.Editor.updateBlock(uuid, block.content.replace(name, e.target.value));
                     setMode(MODE_VIEW$1);
                     break;
                 }
@@ -20505,8 +20506,8 @@ async function parseContent(content, coverProp = "cover") {
     const tagsPropIndex = props.findIndex(([k])=>k === "tags");
     if (tagsPropIndex > -1) {
         const [, tagsPropValue] = props[tagsPropIndex];
-        for (const t of tagsPropValue.split(/,，/)){
-            tags.add(t.replace(/^\s*\[\[((?:[^\]]|\](?!\]))+)\]\]\s*$/, "$1"));
+        for (const tag of tagsPropValue.split(/[,，]\s*/).filter((t)=>t)){
+            tags.add(tag.replace(/^\s*\[\[((?:[^\]]|\](?!\]))+)\]\]\s*$/, "$1"));
         }
         props.splice(tagsPropIndex, 1);
     }
@@ -23748,9 +23749,9 @@ async function main() {
         });
     });
     logseq.Editor.registerSlashCommand("Kanban Board (Task Query)", async ()=>{
-        const lists = preferredWorkflow === "now" ? "LATER, NOW, DONE" : "TODO, DOING, DONE";
+        const lists1 = preferredWorkflow === "now" ? "LATER, NOW, DONE" : "TODO, DOING, DONE";
         const currentBlock = await logseq.Editor.getCurrentBlock();
-        await logseq.Editor.insertAtEditingCursor(`{{renderer :kboard-marker-query, Kanban, ${lists}, cover, 260px}}`);
+        await logseq.Editor.insertAtEditingCursor(`{{renderer :kboard-marker-query, Kanban, ${lists1}, cover, 260px}}`);
         await logseq.Editor.insertBlock(currentBlock.uuid, "{{query (task LATER TODO)}}");
     });
     logseq.Editor.registerBlockContextMenuItem(t$2("Kanban Board"), async ({ uuid  })=>{
@@ -23908,7 +23909,7 @@ function provideStyles() {
       margin-left: 0.8em;
       background: var(--ls-active-secondary-color);
       border-radius: 2px;
-      padding: 1px 7px;
+      padding: 3px 7px;
       color: #fff;
       font-size: 0.85714em;
       vertical-align: middle;
@@ -24342,8 +24343,8 @@ async function markerQueryRenderer({ slot , payload: { arguments: args , uuid  }
     if (!name) return;
     // 4 arguments should go before the column width.
     const hasColumnWidth = args.length > 4 && /(?:[0-9]px|%)\s*$/i.test(args[args.length - 1]);
-    const lists = args.slice(2, hasColumnWidth ? args.length - 2 : args.length).map((arg)=>arg.trim());
-    if (!lists.length) return;
+    const lists1 = args.slice(2, hasColumnWidth ? args.length - 2 : args.length).map((arg)=>arg.trim());
+    if (!lists1.length) return;
     const coverProp = hasColumnWidth ? args[args.length - 2].trim() : undefined;
     const columnWidth = hasColumnWidth ? args[args.length - 1].trim() : undefined;
     const slotEl = parent.document.getElementById(slot);
@@ -24362,7 +24363,7 @@ async function markerQueryRenderer({ slot , payload: { arguments: args , uuid  }
         }
     });
     setTimeout(async ()=>{
-        renderMarkerQueryKanban(key, uuid, name, lists, coverProp, columnWidth);
+        renderMarkerQueryKanban(key, uuid, name, lists1, coverProp, columnWidth);
     }, 0);
 }
 async function queryRenderer({ slot , payload: { arguments: args , uuid  }  }) {
@@ -24473,18 +24474,18 @@ async function getBoardData(boardUUID, property, coverProp) {
     const [name] = await parseContent(boardBlock.content);
     const configs = JSON.parse(boardBlock.properties?.configs ?? '{"tagColors": {}, "archived": []}');
     const [blocks, tags] = await getChildren(boardUUID, property, coverProp, configs);
-    const lists = groupBy(blocks, (block)=>block.properties[property]);
+    const lists1 = groupBy(blocks, (block)=>block.properties[property]);
     if (configs.archived) {
-        for (const listName of Object.keys(lists)){
+        for (const listName of Object.keys(lists1)){
             if (configs.archived.includes(listName)) {
-                delete lists[listName];
+                delete lists1[listName];
             }
         }
     }
     return {
         name,
         uuid: boardUUID,
-        lists,
+        lists: lists1,
         tags,
         configs
     };
@@ -24531,7 +24532,7 @@ async function getChildren(uuid, property, coverProp, configs) {
         filtered
     ];
     await Promise.all(blocksToArchive.map((block)=>logseq.Editor.upsertBlockProperty(block.uuid, "archived", true)));
-    const allTags = new Set();
+    const allTags1 = new Set();
     for (const block of blocks){
         const [content, tags, props, cover, scheduled, deadline] = await parseContent(block.content, coverProp);
         block.data = {
@@ -24543,18 +24544,18 @@ async function getChildren(uuid, property, coverProp, configs) {
             deadline
         };
         for (const tag of tags){
-            allTags.add(tag);
+            allTags1.add(tag);
         }
     }
-    allTags.delete(".kboard-placeholder");
+    allTags1.delete(".kboard-placeholder");
     return [
         blocks,
-        allTags
+        allTags1
     ];
 }
-async function maintainPlaceholders(lists, property) {
+async function maintainPlaceholders(lists1, property) {
     let maintained = false;
-    for (const [name, list] of Object.entries(lists)){
+    for (const [name, list] of Object.entries(lists1)){
         if (!list.some((block)=>block.content.includes(".kboard-placeholder"))) {
             logseq.Editor.insertBlock(list[list.length - 1].uuid, `placeholder #.kboard-placeholder\n${property}:: ${name}`, {
                 sibling: true
@@ -24597,16 +24598,16 @@ function* infinitePalette(palette) {
         i = (i + 1) % palette.length;
     }
 }
-async function renderMarkerQueryKanban(id, uuid, name, lists, coverProp, columnWidth) {
+async function renderMarkerQueryKanban(id, uuid, name, lists1, coverProp, columnWidth) {
     const el = parent.document.getElementById(id);
     if (el == null || !el.isConnected) return;
-    const data = await getMarkerQueryBoardData(uuid, name, lists, coverProp);
+    const data = await getMarkerQueryBoardData(uuid, name, lists1, coverProp);
     await maintainTagColors(uuid, data.tags, data.configs);
     q$3(/*#__PURE__*/ o$2(MarkerQueryBoard, {
         board: data,
         coverProp: coverProp,
         columnWidth: columnWidth,
-        onRefresh: ()=>renderMarkerQueryKanban(id, uuid, name, lists, coverProp, columnWidth)
+        onRefresh: ()=>renderMarkerQueryKanban(id, uuid, name, lists1, coverProp, columnWidth)
     }), el);
 }
 async function renderQueryKanban(id, uuid, name, list, listValues, coverProp, columnWidth) {
@@ -24630,15 +24631,15 @@ async function getMarkerQueryBoardData(uuid, name, statuses, coverProp) {
     if (queryBlock == null) return null;
     const qs = queryBlock.content.match(/\[:find[\s\S]+]/m)?.[0] ?? queryBlock.content.match(/\{\{query (.+)\}\}/)?.[1];
     if (!qs) return null;
-    const allTags = new Set();
-    const lists = {};
     try {
+        const lists1 = {};
         const data = ((qs.startsWith("[:find") ? await logseq.DB.customQuery(qs) : await logseq.DB.q(qs)) ?? []).flat().filter((block)=>statuses.includes(block.marker));
         for (const status of statuses){
-            lists[status] = [];
+            lists1[status] = [];
         }
+        const allTags1 = new Set();
         for (const task of data){
-            lists[task.marker].push(task);
+            lists1[task.marker].push(task);
             const [content, tags, props, cover, scheduled, deadline] = await parseContent(task.content, coverProp);
             task.data = {
                 content,
@@ -24649,12 +24650,13 @@ async function getMarkerQueryBoardData(uuid, name, statuses, coverProp) {
                 deadline
             };
             for (const tag of tags){
-                allTags.add(tag);
+                allTags1.add(tag);
             }
         }
+        allTags1.delete(".kboard-placeholder");
         const configs = JSON.parse(boardBlock.properties?.configs ?? '{"tagColors": {}}');
         const order = configs.order ?? {};
-        for (const [key, list] of Object.entries(lists)){
+        for (const [key, list] of Object.entries(lists1)){
             list.sort((a, b)=>{
                 const listOrder = order[key] ?? {};
                 return (listOrder[a.uuid] ?? -Infinity) - (listOrder[b.uuid] ?? -Infinity);
@@ -24663,8 +24665,8 @@ async function getMarkerQueryBoardData(uuid, name, statuses, coverProp) {
         return {
             name,
             uuid,
-            lists,
-            tags: allTags,
+            lists: lists1,
+            tags: allTags1,
             configs
         };
     } catch (err) {
@@ -24688,7 +24690,7 @@ async function getQueryBoardData(uuid, name, list, listValues, coverProp) {
     const qs = queryBlock.content.match(/\[:find[\s\S]+]/m)?.[0] ?? queryBlock.content.match(/\{\{query (.+)\}\}/)?.[1];
     if (!qs) return null;
     try {
-        const data = ((qs.startsWith("[:find") ? await logseq.DB.customQuery(qs) : await logseq.DB.q(qs)) ?? []).flat().filter((block)=>!block.name).sort((a, b)=>{
+        const data = ((qs.startsWith("[:find") ? await logseq.DB.customQuery(qs) : await logseq.DB.q(qs)) ?? []).flat().filter((block)=>!block.name && !block.content.includes("#.kboard-placeholder")).sort((a, b)=>{
             const aHasDueDate = a.scheduled ?? a.deadline;
             const bHasDueDate = b.scheduled ?? b.deadline;
             if (aHasDueDate && bHasDueDate) {
@@ -24705,15 +24707,15 @@ async function getQueryBoardData(uuid, name, list, listValues, coverProp) {
             }
         });
         const configs = JSON.parse(boardBlock.properties?.configs ?? '{"tagColors": {}}');
-        const lists = getQueryLists(data, list, listValues);
+        const lists1 = getQueryLists(data, list, listValues);
         const order = configs.order ?? {};
-        for (const [key, list] of Object.entries(lists)){
+        for (const [key, list] of Object.entries(lists1)){
             list.sort((a, b)=>{
                 const listOrder = order[key] ?? {};
                 return (listOrder[a.uuid] ?? -Infinity) - (listOrder[b.uuid] ?? -Infinity);
             });
         }
-        const allTags = new Set();
+        const allTags1 = new Set();
         for (const block of data){
             const [content, tags, props, cover, scheduled, deadline] = await parseContent(block.content, coverProp);
             block.data = {
@@ -24725,14 +24727,15 @@ async function getQueryBoardData(uuid, name, list, listValues, coverProp) {
                 deadline
             };
             for (const tag of tags){
-                allTags.add(tag);
+                allTags1.add(tag);
             }
         }
+        allTags1.delete(".kboard-placeholder");
         return {
             name,
             uuid,
-            lists,
-            tags: allTags,
+            lists: lists1,
+            tags: allTags1,
             configs,
             isFixedLists: listValues.length > 0
         };
@@ -24753,23 +24756,23 @@ function getQueryLists(data, list, listValues) {
     if (listValues.length === 0) {
         return groupBy(data, (block)=>block.properties[list]);
     } else {
-        const lists = listValues.reduce((obj, listName)=>{
+        const lists1 = listValues.reduce((obj, listName)=>{
             obj[listName] = [];
             return obj;
         }, {});
         for (const block of data){
             const listPropValue = block.properties?.[list];
             const propValue = Array.isArray(listPropValue) ? `[[${listPropValue[0]}]]` : listPropValue;
-            if (lists[propValue] != null) {
-                lists[propValue].push(block);
+            if (lists1[propValue] != null) {
+                lists1[propValue].push(block);
             } else {
-                if (lists["(ungrouped)"] == null) {
-                    lists["(ungrouped)"] = [];
+                if (lists1["(ungrouped)"] == null) {
+                    lists1["(ungrouped)"] = [];
                 }
-                lists["(ungrouped)"].push(block);
+                lists1["(ungrouped)"].push(block);
             }
         }
-        return lists;
+        return lists1;
     }
 }
 logseq.ready(main).catch(console.error);
