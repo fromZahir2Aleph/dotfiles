@@ -20983,10 +20983,10 @@ function KanbanList({ name , blocks , property , index , width , coverProp  }) {
                     /*#__PURE__*/ o$2("div", {
                         class: "kef-kb-list-title",
                         ...provided.dragHandleProps,
+                        onMouseDown: stopPropagation,
                         children: [
                             /*#__PURE__*/ o$2("div", {
                                 class: "kef-kb-list-name",
-                                onMouseDown: stopPropagation,
                                 children: nameView
                             }),
                             /*#__PURE__*/ o$2("div", {
@@ -21366,10 +21366,10 @@ function MarkerQueryList({ name , blocks , width , coverProp  }) {
         children: [
             /*#__PURE__*/ o$2("div", {
                 class: "kef-kb-list-title",
+                onMouseDown: stopPropagation,
                 children: [
                     /*#__PURE__*/ o$2("div", {
                         class: "kef-kb-list-name",
-                        onMouseDown: stopPropagation,
                         children: name.replace(/\[\[([^\]]+)\]\]/g, "$1")
                     }),
                     /*#__PURE__*/ o$2("div", {
@@ -21575,10 +21575,10 @@ function QueryList({ name , blocks , property , width , index , coverProp , canM
                     /*#__PURE__*/ o$2("div", {
                         class: "kef-kb-list-title",
                         ...provided.dragHandleProps,
+                        onMouseDown: stopPropagation,
                         children: [
                             /*#__PURE__*/ o$2("div", {
                                 class: "kef-kb-list-name",
-                                onMouseDown: stopPropagation,
                                 children: name.replace(/\[\[([^\]]+)\]\]/g, "$1")
                             }),
                             /*#__PURE__*/ o$2("div", {

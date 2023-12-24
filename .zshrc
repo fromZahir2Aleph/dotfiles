@@ -144,3 +144,5 @@ n ()
 
 export EDITOR="hx"
 export VISUAL="hx"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

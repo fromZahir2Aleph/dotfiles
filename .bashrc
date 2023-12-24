@@ -33,3 +33,5 @@ HELIX_RUNTIME=/home/zelim/opt/repos/helix/runtime
 
 export EDITOR="hx"
 export VISUAL="hx"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
