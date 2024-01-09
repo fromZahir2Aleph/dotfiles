@@ -58,3 +58,8 @@ f = "find_next_char"
 T = "till_prev_char"
 F = "find_prev_char"
 "A-." = "repeat_last_motion"
+
+[keys.normal.'C-t']
+l = ":sh kitten @ launch --title Terminal --keep-focus --cwd=current"
+r = ":sh kitten @ send-text --match 'title:^Terminal' python3'\r'"
+e = ":sh kitten @ send-text --match 'title:^Terminal' --from-file ./temp.py"

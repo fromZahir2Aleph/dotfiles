@@ -24450,7 +24450,7 @@ function watchBlockChildrenChange(id, elID, callback) {
             return;
         }
         const predicate = (block)=>block.id === id || block.parent?.id === id;
-        if (txMeta && txMeta.outlinerOp !== "insertBlock" && blocks.some(predicate)) {
+        if (txMeta && txMeta.outlinerOp !== "insert-block" && blocks.some(predicate)) {
             callback(blocks.filter(predicate), txData, txMeta);
         }
     });
