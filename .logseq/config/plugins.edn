@@ -9,15 +9,15 @@
  :logseq-wordcount-plugin {:version "2.4.14", :repo "hkgnp/logseq-wordcount-plugin", :effect false, :theme false}
  :logseq-random-note {:version "1.1.2", :repo "tankcool/logseq-random-note", :effect false, :theme false}
  :logseq-tabs {:version "v1.19.4", :repo "pengx17/logseq-plugin-tabs", :effect true, :theme false}
- :logseq-mark-map {:version "v0.4.0", :repo "vipzhicheng/logseq-plugin-mark-map", :effect false, :theme false}
+ :logseq-mark-map {:version "v0.4.1", :repo "vipzhicheng/logseq-plugin-mark-map", :effect false, :theme false}
  :logseq-focus-mode {:version "v1.0.3", :repo "sethfair/logseq-focus-mode", :effect false, :theme false}
  :logseq-bullet-threading {:version "v1.1.4", :repo "pengx17/logseq-plugin-bullet-threading", :effect false, :theme false}
  :logseq-markdown-table {:version "v1.8.0", :repo "haydenull/logseq-plugin-markdown-table", :effect false, :theme false}
  :logseq-tocgen {:version "v2.13.0", :repo "sethyuan/logseq-plugin-tocgen", :effect true, :theme false}
  :logseq-web-parser {:version "1.0.4", :repo "sawhney17/logseq-web-parser", :effect true, :theme false}
- :logseq-todo-plugin {:version "v1.20.2", :repo "ahonn/logseq-plugin-todo", :effect true, :theme false}
+ :logseq-todo-plugin {:version "v1.21.0", :repo "ahonn/logseq-plugin-todo", :effect true, :theme false}
  :logseq-todo-master {:version "v1.10.3", :repo "pengx17/logseq-plugin-todo-master", :effect false, :theme false}
- :logseq-automatic-linker {:version "1.5.5", :repo "sawhney17/logseq-automatic-linker", :effect false, :theme false}
+ :logseq-automatic-linker {:version "1.6.0", :repo "sawhney17/logseq-automatic-linker", :effect false, :theme false}
  :logseq-omnivore {:version "v1.16.4", :repo "omnivore-app/logseq-omnivore", :effect false, :theme false}
  :logseq-interstitial {:version "0.1.5", :repo "QWxleA/logseq-interstitial-heading-plugin", :effect false, :theme false}
  :logseq-task-management-shortcuts {:version "v0.0.3", :repo "vipzhicheng/logseq-plugin-task-management-shortcuts", :effect false, :theme false}
