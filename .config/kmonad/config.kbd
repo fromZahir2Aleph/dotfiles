@@ -205,8 +205,8 @@ Leader keys and the layers they lead to
   num (tap-hold-next-release 130 (around-next @tn) @hn)
   capsw (layer-add shifted)
   sp_hb (tap-hold-next-release 130 spc @hb :timeout-button spc)
-  rt_lk (tap-hold-next-release 130 ret (layer-toggle leader-keys) :timeout-button ret)
-  es_lk (tap-hold-next-release 130 esc (layer-toggle leader-keys))
+  rt_lk (tap-hold-next-release 250 ret (layer-toggle leader-keys) :timeout-button ret)
+  es_lk (tap-hold-next-release 250 esc (layer-toggle leader-keys))
   
   ;; Latin
   alt_r (tap-hold-next-release 130 r lalt)
