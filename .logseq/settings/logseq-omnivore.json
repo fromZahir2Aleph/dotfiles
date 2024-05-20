@@ -12,13 +12,13 @@
   "syncContent": false,
   "advancedSettings": "",
   "frequency": "60",
-  "syncAt": "2024-04-29T20:44:32",
+  "syncAt": "2024-05-20T18:49:16",
   "graph": "downstream",
   "pageName": "Omnivore",
   "headingBlockTitle": "## 🔖 Articles",
   "endpoint": "https://api-prod.omnivore.app/api/graphql",
   "disabled": false,
-  "version": "v1.16.4",
-  "syncJobId": 13,
+  "version": "v1.16.5",
+  "syncJobId": 14,
   "loading": false
 }
