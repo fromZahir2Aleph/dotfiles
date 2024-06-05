@@ -51,10 +51,6 @@ L = "search"
 "C-'" = "flip_selections"
 h = "copy_selection_on_next_line"
 H = "copy_selection_on_prev_line"
-t = "find_till_char"
-f = "find_next_char"
-T = "till_prev_char"
-F = "find_prev_char"
 "A-." = "repeat_last_motion"
 
 [keys.normal.'C-t']

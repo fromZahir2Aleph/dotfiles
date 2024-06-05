@@ -12,7 +12,7 @@
  :logseq-mark-map {:version "v0.4.3", :repo "vipzhicheng/logseq-plugin-mark-map", :effect false, :theme false}
  :logseq-focus-mode {:version "v1.0.3", :repo "sethfair/logseq-focus-mode", :effect false, :theme false}
  :logseq-bullet-threading {:version "v1.1.4", :repo "pengx17/logseq-plugin-bullet-threading", :effect false, :theme false}
- :logseq-markdown-table {:version "v1.8.0", :repo "haydenull/logseq-plugin-markdown-table", :effect false, :theme false}
+ :logseq-markdown-table {:version "v1.8.1", :repo "haydenull/logseq-plugin-markdown-table", :effect false, :theme false}
  :logseq-tocgen {:version "v2.13.0", :repo "sethyuan/logseq-plugin-tocgen", :effect true, :theme false}
  :logseq-web-parser {:version "1.0.4", :repo "sawhney17/logseq-web-parser", :effect true, :theme false}
  :logseq-todo-plugin {:version "v1.21.0", :repo "ahonn/logseq-plugin-todo", :effect true, :theme false}
@@ -28,4 +28,4 @@
  :logseq-awesome-ui {:version "v2.4.0", :repo "yoyurec/logseq-awesome-ui", :effect true, :theme false}
  :logseq-awesome-content {:version "v1.2.1", :repo "yoyurec/logseq-awesome-content", :effect true, :theme false}
  :logseq-sliders-plugin {:version "1.1.5", :repo "hkgnp/logseq-sliders-plugin", :effect true, :theme false}
- :logseq-move-block {:version "v0.1.0", :repo "vipzhicheng/logseq-plugin-move-block", :effect true, :theme false}}
+ :logseq-move-block {:version "v1.0.0", :repo "vipzhicheng/logseq-plugin-move-block", :effect true, :theme false}}
