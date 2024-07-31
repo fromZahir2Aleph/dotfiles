@@ -456,7 +456,10 @@ class AnkiConnect:
     @util.api()
     def getProfiles(self):
         return self.window().pm.profiles()
-
+    
+    @util.api()
+    def getActiveProfile(self):
+        return self.window().pm.name
 
     @util.api()
     def loadProfile(self, name):
@@ -488,7 +491,15 @@ class AnkiConnect:
 
     @util.api()
     def sync(self):
-        self.window().onSync()
+        mw = self.window()
+        auth = mw.pm.sync_auth()
+        if not auth:
+            raise Exception("sync: auth not configured")
+        out = mw.col.sync_collection(auth, mw.pm.media_syncing_enabled())
+        accepted_sync_statuses = [out.NO_CHANGES, out.NORMAL_SYNC]
+        if out.required not in accepted_sync_statuses:
+            raise Exception(f"Sync status {out.required} not one of {accepted_sync_statuses} - see SyncCollectionResponse.ChangesRequired for list of sync statuses: https://github.com/ankitects/anki/blob/e41c4573d789afe8b020fab5d9d1eede50c3fa3d/proto/anki/sync.proto#L57-L65")
+        mw.onSync()
 
 
     @util.api()
@@ -835,6 +846,60 @@ class AnkiConnect:
         if not updated:
             raise Exception('Must provide a "fields" or "tags" property.')
 
+    @util.api()
+    def updateNoteModel(self, note):
+        """
+        Update the model and fields of a given note.
+
+        :param note: A dictionary containing note details, including 'id', 'modelName', 'fields', and 'tags'.
+        """
+        # Extract and validate the note ID
+        note_id = note.get('id')
+        if not note_id:
+            raise ValueError("Note ID is required")
+
+        # Extract and validate the new model name
+        new_model_name = note.get('modelName')
+        if not new_model_name:
+            raise ValueError("Model name is required")
+
+        # Extract and validate the new fields
+        new_fields = note.get('fields')
+        if not new_fields or not isinstance(new_fields, dict):
+            raise ValueError("Fields must be provided as a dictionary")
+
+        # Extract the new tags
+        new_tags = note.get('tags', [])
+
+        # Get the current note from the collection
+        anki_note = self.getNote(note_id)
+
+        # Get the new model from the collection
+        collection = self.collection()
+        new_model = collection.models.by_name(new_model_name)
+        if not new_model:
+            raise ValueError(f"Model '{new_model_name}' not found")
+
+        # Update the note's model
+        anki_note.mid = new_model['id']
+        anki_note._fmap = collection.models.field_map(new_model)
+        anki_note.fields = [''] * len(new_model['flds'])
+
+        # Update the fields with new values
+        for name, value in new_fields.items():
+            for anki_name in anki_note.keys():
+                if name.lower() == anki_name.lower():
+                    anki_note[anki_name] = value
+                    break
+
+        # Update the tags
+        anki_note.tags = new_tags
+
+        # Flush changes to ensure they are saved
+        anki_note.flush()
+
+        # Save changes to the collection
+        collection.autosave()
 
     @util.api()
     def updateNoteTags(self, note, tags):
@@ -1481,6 +1546,8 @@ class AnkiConnect:
                     order = info['ord']
                     name = info['name']
                     fields[name] = {'value': note.fields[order], 'order': order}
+                states = self.collection()._backend.get_scheduling_states(card.id)
+                nextReviews = self.collection()._backend.describe_next_states(states)
 
                 result.append({
                     'cardId': card.id,
@@ -1504,6 +1571,7 @@ class AnkiConnect:
                     'lapses': card.lapses,
                     'left': card.left,
                     'mod': card.mod,
+                    'nextReviews': list(nextReviews),
                 })
             except NotFoundError:
                 # Anki will give a NotFoundError if the card ID does not exist.
@@ -1631,9 +1699,11 @@ class AnkiConnect:
 
                 result.append({
                     'noteId': note.id,
+                    'profile': self.window().pm.name,
                     'tags' : note.tags,
                     'fields': fields,
                     'modelName': model['name'],
+                    'mod': note.mod,
                     'cards': self.collection().db.list('select id from cards where nid = ? order by ord', note.id)
                 })
             except NotFoundError:
@@ -1645,6 +1715,23 @@ class AnkiConnect:
 
         return result
 
+    @util.api()
+    def notesModTime(self, notes):
+        result = []
+        for nid in notes:
+            try:
+                note = self.getNote(nid)
+                result.append({
+                    'noteId': note.id,
+                    'mod': note.mod
+                })
+            except NotFoundError:
+                # Anki will give a NotFoundError if the note ID does not exist.
+                # Best behavior is probably to add an 'empty card' to the
+                # returned result, so that the items of the input and return
+                # lists correspond.
+                result.append({})
+        return result
 
     @util.api()
     def deleteNotes(self, notes):
@@ -1953,11 +2040,19 @@ class AnkiConnect:
     @util.api()
     def addNotes(self, notes):
         results = []
+        errs = []
+
         for note in notes:
             try:
                 results.append(self.addNote(note))
-            except:
-                results.append(None)
+            except Exception as e:
+                # I specifically chose to continue, so we gather all the errors of all notes (ie not break)
+                errs.append(str(e))
+
+        if errs:
+            # Roll back the changes so on error nothing happens
+            self.deleteNotes(results)
+            raise Exception(str(errs))
 
         return results
 
