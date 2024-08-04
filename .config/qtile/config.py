@@ -34,7 +34,9 @@ def autostart():
     home = os.path.expanduser('~/opt/scripts')
     subprocess.Popen([home + '/kmonad.sh'])
     subprocess.Popen([home + '/screen_projecting.sh'])
-    
+    subprocess.Popen([home + '/sxhkd.sh'])
+    subprocess.Popen([home + '/nitrogen.sh'])
+
 from libqtile import bar, layout, qtile, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
@@ -90,6 +92,19 @@ keys = [
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     Key([mod], "d", lazy.spawn("rofi -show drun"), desc="Launch Rofi"),
+    # Other key bindings...
+
+    # Volume Up
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+")),
+    
+    # Volume Down
+    Key([], "XF86AudioLowerVolume", lazy.spawn("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-")),
+    
+    # Mute/Unmute
+    Key([], "XF86AudioMute", lazy.spawn("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")),
+    
+    # Toggle Audio Sink
+    #Key([mod], "s", lazy.spawn("/home/zelim/opt/scripts/toggle-sink.sh")),
 ]
 
 # Add key bindings to switch VTs in Wayland.
@@ -157,6 +172,8 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
+    	wallpaper='/home/zelim/Pictures/Wallpapers/120_-_KnFPX73.jpg',
+        wallpaper_mode='fill',
         bottom=bar.Bar(
             [
                 widget.CurrentLayout(),
@@ -175,6 +192,7 @@ screens = [
                 # widget.StatusNotifier(),
                 widget.Systray(),
                 widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
+                widget.Battery(),
                 widget.QuickExit(),
             ],
             24,
