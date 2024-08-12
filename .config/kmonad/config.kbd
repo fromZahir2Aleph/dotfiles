@@ -18,7 +18,7 @@
   grv     3      2      1      0      4      5      6      7      8      9      -      =      caps              
   @capsw  k      @rt_lk bspc   tab    b      j      @._:   @,_'   @es_lk x      [      ]      \               
   m       @alt_r @met_s @sft_t @ctl_n f      w      @ctl_a @sft_e @met_i @alt_h v      ret                                                
-  @st_tb  @p_z   @c_q   @l_rus @d_nv  @g_hx  y      @o_nv  @num   @sym   u      rsft           ;;up                    
+  @st_tb  @p_z   @c_q   @l_rus @d_nv  @g_hx  y      @o_nv  @sym   @num   u      rsft           ;;up                    
   lctl KeyMenu   @nv_in @nv_tm spc           ralt   rctl                        ;;left   down   rght
 )
 
@@ -37,7 +37,7 @@
   grv     3      2      1      0      4      5      6      7      8      9      -      =      caps              
   @capsw  k      @rt_lk bspc   tab    b      j      @._:   @,_'   @es_lk x      [      ]      \               
   m       @hx_r  @hx_s  @hx_t  @ctl_n @hx_f  w      @hx_a  @sft_e @hx_i  h      v      ret                                                
-  @st_tb  @p_z   @hx_cq @hx_l  @d_nv  @g_bs  y      @hx_o  @num   @sym   u      rsft           ;;up                    
+  @st_tb  @p_z   @hx_cq @hx_l  @d_nv  @g_bs  y      @hx_o  @sym   @num   u      rsft           ;;up                    
   lctl KeyMenu   @nv_in @nv_tm spc           ralt   rctl                        ;;left   down   rght
 )
 
@@ -67,7 +67,7 @@
   grv     3      2      1      0      4      5      6      7      8      9      -      =      caps              
   @capsw  k      @rt_lk bspc   tab    b      j      @._:   @,_'   @es_lk x      [      ]      \               
   m       @alt_r @met_s @sft_t @ctl_n f      w      @ctl_a @sft_e @met_i @alt_h v      ret                                                
-  @st_tb  @p_z   @c_q   @l2rhx @d_nv  g      y      @o_nv  @num   @sym   u      rsft           ;;up                    
+  @st_tb  @p_z   @c_q   @l2rhx @d_nv  g      y      @o_nv  @sym   @num   u      rsft           ;;up                    
   lctl KeyMenu   @nv_in @nv_tm spc           ralt   rctl                        ;;left   down   rght
 )
 
@@ -86,7 +86,7 @@
   grv     3      2      1      0      4      5      6      7      8      9      -       =      bspc             
   @capsw  ~      @rt_lk bspc   @sm2bs @      XX     @._:   @,_'   @es_lk `      [       ]      \              
   ^       @alt_! @met_- @sft_+ @ctl_= ;      &      @ctlbr @sftbr @met_[ @alt_] ~       ret                     
-  @st_tb  <      /      *      @>_nv  ?      $      @#_nv  @num   %      \\     rsft           ;;up                
+  @st_tb  <      /      *      @>_nv  ?      $      @#_nv  %      @num   \\     rsft           ;;up                
   lctl KeyMenu   @nv_in @nv_tm spc           ralt   rctl                        ;;left   down   rght
 )
 
@@ -95,7 +95,7 @@
   grv     3      2      1      0      4      5      6      7      8      9      -      =      caps              
   @capsw  k      @rt_lk bspc   @nm2bs v      XX     @._:   @,_'   @es_lk q      [      ]      \               
   esc     @alt_3 @met_2 @sft_1 @ctl_0 4      5      @ctl_6 @sft_7 @met_8 @alt_9 XX     ret                                                
-  @st_tb  m      6      7      @d_nv  @altf4 x      XX     XX     @sym   u      rsft           ;;up              
+  @st_tb  m      6      7      @d_nv  @altf4 x      XX     @sym   XX     u      rsft           ;;up              
   lctl KeyMenu   @nv_in lalt   spc           ralt   rctl                        ;;left   down   rght
 )
 
@@ -105,7 +105,7 @@
   grv     3      2      1      0      4      5      6      7      8      9      -       =      caps              
   @capsw  K      @rt_lk bspc   tab    B      J      @._:   @,_'   @es_lk X      [       ]       \               
   M       R      S      T      N      F      W      A      E      I      H      V       ret                        
-  @st_tb  @P_Z   @C_Q   L      D      G      Y      O      @sym   @num   U      rsft            ;;up                
+  @st_tb  @P_Z   @C_Q   L      D      G      Y      O      @num   @sym   U      rsft            ;;up                
   lctl  KeyMenu  lmet   lalt          @out          ralt   rctl                        ;;left   down   rght
 )
 
@@ -136,7 +136,7 @@ Leader keys and the layers they lead to
   grv     3      2      1      0      4      5      6      7      8      9      -      =      caps              
   @capsw  del    @rt_lk bspc   tab    del    z      XX     @jap_, f5     u      [      ]      \               
   @redo   @cut   @copy  @pst   @undo  @ctl_w f6     left   down   up     right  J      ret                                                
-  @st_tb  @ptab  @ntab  @pw    @nw    @altf4 x      XX     @num*2 @sym*2 XX     rsft          ;;up              
+  @st_tb  @ptab  @ntab  @pw    @nw    @altf4 x      XX     @sym*2 @num*2 XX     rsft          ;;up              
   lctl  KeyMenu  @nvoff lalt          spc           ralt   rctl                        ;;left   down   rght
 )
 
@@ -163,7 +163,7 @@ Leader keys and the layers they lead to
   grv     3      2      1      0      4      5      6      7      8      9      -       =      bspc             
   @capsw  ~      @rt_lk bspc   @?!    @      `      @._:   @,_'   esc    "      [       ]      \              
   ^       @alt_! @-=    @+=    @2=    @##    &      @ctlbr @sftbr @2[    @2]    '       ret                     
-  @st_tb  @</    /      *      @>=    ;      $      @hb    @num   %      XX     rsft           ;;up                
+  @st_tb  @</    /      *      @>=    ;      $      @hb    %      @num   XX     rsft           ;;up                
   lctl  KeyMenu  lmet   @nv_tm spc           ralt   rctl                        ;;left   down   rght
 )
 
@@ -172,7 +172,7 @@ Leader keys and the layers they lead to
   grv     3      2      1      0      4      5      6      7      8      9      -       =      bspc             
   @capsw  ~      ret    ;      bspc   @      `      @._:   @,_'   esc    "      [       ]      \              
   ^       @alt_! @-=    @+=    @2=    @##    &      @ctlbr @sftbr @ru_2[ @ru_2] '       ret                     
-  @st_tb  @<=    /      *      @>=    @?!    $      @hb    @num   %      XX     rsft           ;;up                
+  @st_tb  @<=    /      *      @>=    @?!    $      @hb    %      @num   XX     rsft           ;;up                
   lctl  KeyMenu  lmet   @nv_tm spc           ralt   rctl                        ;;left   down   rght
 )
 
