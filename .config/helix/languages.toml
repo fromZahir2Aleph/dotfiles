@@ -1,0 +1,29 @@
+[[language]]
+name = "markdown"
+language-servers = ["ltex", "markdown-oxide"]
+file-types = ["md", "txt"]
+scope = "source.markdown"
+roots = []
+
+[[language]]
+name = "python"
+language-servers = ["pyright", "ruff"]
+scope = "source.python"
+injection-regex = "python"
+file-types = ["py","pyi","py3","pyw","ptl",".pythonstartup",".pythonrc","SConstruct"]
+shebangs = ["python"]
+roots = ["setup.py", "setup.cfg", "pyproject.toml"]
+comment-token = "#"
+
+[language-server.ltex]
+command = "/home/zelim/opt/lsp/ltex-ls/bin/ltex-ls"
+config = { ltex.language = "ru-RU" }
+
+[language-server.pyright.config.python.analysis]
+typeCheckingMode = "basic"
+
+# if you choose `ruff-lsp`
+[language-server.ruff]
+command = "ruff-lsp"
+[language-server.ruff.config.settings]
+args = ["--ignore", "E501"]

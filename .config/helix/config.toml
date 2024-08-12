@@ -1,0 +1,59 @@
+theme = "catppuccin_macchiato"
+
+[editor]
+rulers = [80, 120]
+mouse = true
+line-number = "relative"
+
+[editor.soft-wrap]
+enable = true
+
+[editor.cursor-shape]
+normal = "block"
+insert = "bar"
+select = "underline"
+
+[editor.indent-guides]
+render = true
+character = "|" # Some characters that work well: "▏", "┆", "┊", "⸽"
+skip-levels = 1
+
+[editor.file-picker]
+hidden = false
+parents = false
+git-ignore = false
+
+[editor.lsp]
+display-messages = true
+display-inlay-hints = true
+
+[editor.statusline]
+left = ["mode", "spinner"]
+center = ["file-name"]
+right = ["diagnostics", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
+separator = "│"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+[keys.normal]
+l = "goto_word"
+L = "search"
+"'" = "collapse_selection"
+"C-'" = "flip_selections"
+h = "copy_selection_on_next_line"
+H = "copy_selection_on_prev_line"
+
+[keys.select]
+l = "goto_word"
+L = "search"
+"'" = "collapse_selection"
+"C-'" = "flip_selections"
+h = "copy_selection_on_next_line"
+H = "copy_selection_on_prev_line"
+"A-." = "repeat_last_motion"
+
+[keys.normal.'C-t']
+l = ":sh kitten @ launch --title Terminal --keep-focus --cwd=current"
+r = ":sh kitten @ send-text --match 'title:^Terminal' python3'\r'"
+e = ":sh kitten @ send-text --match 'title:^Terminal' --from-file ./temp.py"
