@@ -1,6 +1,7 @@
 {
+  "defaultPropertyKey": "value",
+  "disabled": false,
   "thumbColour": "pink",
   "trackColour": "tomato",
-  "hideSliderValue": true,
-  "disabled": false
+  "hideSliderValue": true
 }
