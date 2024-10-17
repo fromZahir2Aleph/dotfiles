@@ -307,7 +307,7 @@ Leader keys and the layers they lead to
   alt_] (tap-hold-next-release 130 ] (around lalt @tb))
   met_[ (tap-hold-next-release 130 [ (around lmet @tb))
   >_nv (tap-hold-next-release 130 > (layer-toggle nav-edit))
-  ;_nv (tap-hold-next-release 130 # (layer-toggle nav-edit))
+  ;_nv (tap-hold-next-release 130 ; (layer-toggle nav-edit))
   sm2bs (tap-hold-next-release 130 tab (layer-rem symbols))
 
   ;; Numbers
