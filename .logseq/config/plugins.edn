@@ -2,7 +2,7 @@
  :logseq-plugin-gpt3-openai {:version "v1.13.2", :repo "briansunter/logseq-plugin-gpt3-openai", :effect true, :theme false}
  :logseq-property-visualizer {:version "1.0.4", :repo "sawhney17/logseq-property-visualizer", :effect false, :theme false}
  :logseq-chartrender-plugin {:version "1.10.1", :repo "hkgnp/logseq-chartrender-plugin", :effect false, :theme false}
- :logseq-tablerender-plugin {:version "v2.8.1", :repo "hkgnp/logseq-tablerender-plugin", :effect false, :theme false}
+ :logseq-tablerender-plugin {:version "v2.9.0", :repo "hkgnp/logseq-tablerender-plugin", :effect false, :theme false}
  :logseq-journals-calendar {:version "v0.10.10", :repo "xyhp915/logseq-journals-calendar", :effect false, :theme false}
  :logseq-quick-capture {:version "0.0.7", :repo "tankcool/logseq-quick-capture", :effect false, :theme false}
  :logseq-quick-add-plugin {:version "v.1.1.2", :repo "vyleung/logseq-quick-add-plugin", :effect true, :theme false}
