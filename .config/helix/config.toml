@@ -46,7 +46,7 @@ H = "copy_selection_on_prev_line"
 
 [keys.select]
 l = "goto_word"
-L = "search"
+j = "search"
 "'" = "collapse_selection"
 "C-'" = "flip_selections"
 h = "copy_selection_on_next_line"

@@ -35,7 +35,7 @@
 (deflayer enhelix
   esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12    @norm
   grv     3      2      1      0      4      5      6      7      8      9      -      =      caps              
-  @capsw  k      @rt_lk bspc   tab    b      j      @._:   @,_'   @es_lk x      [      ]      \               
+  @capsw  k      @rt_lk bspc   tab    b      @hx_j  @._:   @,_'   @es_lk x      [      ]      \               
   m       @hx_r  @hx_s  @hx_t  @ctl_n @hx_f  w      @hx_a  @sft_e @hx_i  h      v      ret                                                
   @st_tb  @p_z   @hx_cq @hx_l  @d_nv  @g_bs  y      @hx_o  @sym   @num   u      rsft           ;;up                    
   lctl KeyMenu   @nv_in @nv_tm spc           ralt   rctl                        ;;left   down   rght
@@ -51,13 +51,23 @@
   lctl KeyMenu   @nv_in @nv_tm spc           ralt   rctl                        ;;left   down   rght
 )
 
-;; Search in helix in Cyrillic 
-(deflayer ruhelix2 
+;; The first character of goto_word function for Cyrillic helix
+(deflayer goto_word1 
   esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12    @norm
   grv     3      2      1      0      4      5      6      7      8      9      -      =      caps              
-  @capsw  p      @rt2en bspc   tab    ,      ;      @/_:   @,_a   @es2en x      @ru[   @ru]   \               
-  v       @alt_h @met_c @st_n2 @ctl_y @r_w   q      @ct_t2 @sft_j @met_f @alt_b .      ret                        
-  @st_tb  @l_o   @g_i   k      @dnvr  u      [      @e_nv  @z_`   @m_]   @s_'   rsft           ;;up              
+  @capsw  @k&    @rt_lk bspc   tab    @b&    @j&    @._:   @,_'   @es_lk @x&    [      ]      \               
+  m       @r&    @s&    @t&    @n&    @f&    @w&    @a&    @e&    @i&    @h&    @v&    ret                                                
+  @st_tb  @p_z&  @c_q&  @l&    @d&    @g&    @y&    @o&    @sym   @num   @u&    rsft           ;;up                    
+  lctl KeyMenu   @nv_in @nv_tm spc           ralt   rctl                        ;;left   down   rght
+)
+
+;; The second character of goto_word function for Cyrillic helix
+(deflayer goto_word2 
+  esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12    @norm
+  grv     3      2      1      0      4      5      6      7      8      9      -      =      caps              
+  @capsw  @k&2   @rt_lk bspc   tab    @b&2   @j&2   @._:   @,_'   @es_lk @x&2    [      ]      \               
+  m       @r&2   @s&2   @t&2   @n&2   @f&2   @w&2   @a&2   @e&2   @i&2   @h&2    @v&2    ret                                                
+  @st_tb  @p_z&2 @c_q&2 @l&2   @d&2   @g&2   @y&2   @o&2   @sym   @num   @u&2    rsft           ;;up                    
   lctl KeyMenu   @nv_in @nv_tm spc           ralt   rctl                        ;;left   down   rght
 )
 
@@ -196,7 +206,8 @@ Leader keys and the layers they lead to
   hn (layer-add numbers) 
   rus (layer-switch russian)
   ruhx (layer-switch ruhelix)
-  ruhx2 (layer-switch ruhelix2)
+  gtw1 (layer-toggle goto_word1)
+  gtw2 (layer-toggle goto_word2)
   norm (layer-switch normal)
   nv_tm (layer-delay 7000 nav-edit)
   nv_in (layer-add nav-edit)
@@ -229,7 +240,7 @@ Leader keys and the layers they lead to
   g_hx (tap-hold-next-release 130 g (layer-switch enhelix))
   out #(spc (layer-rem shifted))
   
-  ;; Cyrillic
+  ;; Cyrillic helix
   al_h2 (tap-hold-next-release 130 h (around lalt @tb))
   st_n2 (tap-hold-next-release 130 n lsft)
   ctl_y (tap-hold-next-release 130 y (around lctl @tb))
@@ -252,9 +263,10 @@ Leader keys and the layers they lead to
   dnvr (tap-hold-next-release 130 d (layer-toggle runav-edit))
   e_nv (tap-hold-next-release 130 e (layer-toggle nav-edit))
 
-  ;; Cyrillic helix
+  ;; Latin helix to Cyrillic helix
   g_bs (tap-hold-next-release 130 g (layer-switch base))
-  hx_l (tap-macro l (around lalt lsft) @ruhx2)
+  hx_j (tap-macro j (around lalt lsft) @ruhx)
+  hx_l (tap-macro l (layer-add goto_word1))
   hx_i (tap-hold-next-release 130 (tap-macro i (around lalt lsft) @ruhx) rmet)
   hx_s (tap-hold-next-release 130 (tap-macro s (around lalt lsft) @ruhx) lmet)
   hx_cq  (tap-hold-next-release 130 (tap-macro c (around lalt lsft) @ruhx) q)
@@ -296,7 +308,57 @@ Leader keys and the layers they lead to
   z`_h (tap-hold-next-release 130 #(z (around lalt lsft) (layer-rem sticky-helix)) #(` (around lalt lsft) (layer-rem sticky-helix)))
   m]_h (tap-hold-next-release 130 #(m (around lalt lsft) (layer-rem sticky-helix)) #(] (around lalt lsft) (layer-rem sticky-helix)))
   s'_h (tap-hold-next-release 130 #(s (around lalt lsft) (layer-rem sticky-helix)) #(' (around lalt lsft) (layer-rem sticky-helix)))
-  
+
+  ;; goto_word1
+  k& (tap-macro k (layer-rem goto_word1) (layer-add goto_word2))
+  b& (tap-macro b (layer-rem goto_word1) (layer-add goto_word2))
+  j& (tap-macro  (layer-rem goto_word1) (layer-add goto_word2))
+  x& (tap-macro k (layer-rem goto_word1) (layer-add goto_word2))
+  r& (tap-macro k (layer-rem goto_word1) (layer-add goto_word2))
+  s& (tap-macro k (layer-rem goto_word1) (layer-add goto_word2)2)
+  t& (tap-macro k (layer-rem goto_word1) (layer-add goto_word2))
+  n& (tap-macro k (layer-rem goto_word1) (layer-add goto_word2))
+  f& (tap-macro k (layer-rem goto_word1) (layer-add goto_word2))
+  w& (tap-macro k (layer-rem goto_word1) (layer-add goto_word2))
+  a& (tap-macro k (layer-rem goto_word1) (layer-add goto_word2))
+  e& (tap-macro k (layer-rem goto_word1) (layer-add goto_word2))
+  i& (tap-macro i (layer-rem goto_word1) (layer-add goto_word2))
+  h& (tap-macro h (layer-rem goto_word1) (layer-add goto_word2))
+  v& (tap-macro v (layer-rem goto_word1) (layer-add goto_word2))
+  p_z& (tap-hold-next-release 130 (tap-macro p (layer-rem goto_word1) (layer-add goto_word2)) (tap-macro z (layer-rem goto_word1) (layer-add goto_word2)))
+  c_q& (tap-hold-next-release 130 (tap-macro c (layer-rem goto_word1) (layer-add goto_word2)) (tap-macro q (layer-rem goto_word1) (layer-add goto_word2)))
+  l& (tap-macro l (layer-rem goto_word1) (layer-add goto_word2))
+  d& (tap-macro d (layer-rem goto_word1) (layer-add goto_word2))
+  g& (tap-macro g (layer-rem goto_word1) (layer-add goto_word2))
+  y& (tap-macro y (layer-rem goto_word1) (layer-add goto_word2))
+  o& (tap-macro o (layer-rem goto_word1) (layer-add goto_word2))
+  u& (tap-macro u (layer-rem goto_word1) (layer-add goto_word2))
+
+  ;; goto_word2
+  k&2 (tap-macro k (layer-rem goto_word2))
+  b&2 (tap-macro b (layer-rem goto_word2))
+  j&2 (tap-macro j (layer-rem goto_word2))
+  x&2 (tap-macro x (layer-rem goto_word2))
+  r&2 (tap-macro r (layer-rem goto_word2))
+  s&2 (tap-macro s (layer-rem goto_word2))
+  t&2 (tap-macro t (layer-rem goto_word2))
+  n&2 (tap-macro n (layer-rem goto_word2))
+  f&2 (tap-macro f (layer-rem goto_word2))
+  w&2 (tap-macro w (layer-rem goto_word2))
+  a&2 (tap-macro a (layer-rem goto_word2))
+  e&2 (tap-macro e (layer-rem goto_word2))
+  i&2 (tap-macro i (layer-rem goto_word2))
+  h&2 (tap-macro h (layer-rem goto_word2))
+  v&2 (tap-macro v (layer-rem goto_word2))
+  p_z&2 (tap-hold-next-release 130 (tap-macro p (layer-rem goto_word2)) (tap-macro z (layer-rem goto_word2)))
+  c_q&2 (tap-hold-next-release 130 (tap-macro c (layer-rem goto_word2)) (tap-macro q (layer-rem goto_word2)))
+  l&2 (tap-macro l (layer-rem goto_word2))
+  d&2 (tap-macro d (layer-rem goto_word2))
+  g&2 (tap-macro g (layer-rem goto_word2))
+  y&2 (tap-macro y (layer-rem goto_word2))
+  o&2 (tap-macro o (layer-rem goto_word2))
+  u&2 (tap-macro u (layer-rem goto_word2))
+
   ;; Symbols
   alt_! (tap-hold-next-release 130 ! (around lalt @tb))
   sft_+ (tap-hold-next-release 130 + sft)
@@ -344,7 +406,7 @@ Leader keys and the layers they lead to
   Leader keys and the layers they lead to
   -------------------------------------------------------------------------- |#
   
-  ;; Second symbol
+  ;; Leads to the second symbol
   sym*2 (around-next (layer-toggle sym2))
   \& (around \\ (around-next @ts))
   @& (around @ (around-next @ts))
@@ -372,7 +434,7 @@ Leader keys and the layers they lead to
   #& (around # (around-next @ts))
   %& (around % (around-next @ts))
 
-  ;; Second number
+  ;; Leads to the second number
   num*2 (around-next (layer-toggle num2))
   1& (around 1 (around-next @tn))
   2& (around 2 (around-next @tn))
