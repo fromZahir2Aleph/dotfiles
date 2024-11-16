@@ -1,0 +1,1 @@
+/home/zelim/dotfiles/.zshrc
