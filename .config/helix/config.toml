@@ -43,6 +43,7 @@ L = "search"
 "C-'" = "flip_selections"
 h = "copy_selection_on_next_line"
 H = "copy_selection_on_prev_line"
+"C-e" = ["move_next_word_end", "collapse_selection", "insert_mode"]
 "C-t" = ["insert_at_line_end", "move_char_left"]
 
 [keys.select]
