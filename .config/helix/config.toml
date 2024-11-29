@@ -43,17 +43,18 @@ L = "search"
 "C-'" = "flip_selections"
 h = "copy_selection_on_next_line"
 H = "copy_selection_on_prev_line"
+"C-t" = ["insert_at_line_end", "move_char_left"]
 
 [keys.select]
 l = "goto_word"
-j = "search"
+L = "search"
 "'" = "collapse_selection"
 "C-'" = "flip_selections"
 h = "copy_selection_on_next_line"
 H = "copy_selection_on_prev_line"
 "A-." = "repeat_last_motion"
 
-[keys.normal.'C-t']
+[keys.normal.'C-j']
 l = ":sh kitten @ launch --title Terminal --keep-focus --cwd=current"
 r = ":sh kitten @ send-text --match 'title:^Terminal' python3'\r'"
 e = ":sh kitten @ send-text --match 'title:^Terminal' --from-file ./temp.py"
