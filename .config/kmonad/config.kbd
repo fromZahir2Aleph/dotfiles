@@ -35,7 +35,7 @@
 (deflayer enhelix
   esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12    @norm
   grv     3      2      1      0      4      5      6      7      8      9      -      =      caps              
-  @capsw  k      @rt_lk bspc   tab    b      @hx_j  @._:   @,_'   @es_lk x      [      ]      \               
+  @capsw  k      @rt_lk bspc   tab    b      @hx_j  @hx_.: @,_'   @es_lk x      [      ]      \               
   m       @hx_r  @hx_s  @hx_t  @ctl_n @hx_f  w      @hx_a  @sft_e @hx_i  h      v      ret                                                
   @st_tb  @p_z   @hx_cq @hx_l  @d_nv  @g_bs  y      @hx_o  @sym   @num   u      rsft           ;;up                    
   lctl KeyMenu   @nv_in @nv_tm spc           ralt   rctl                        ;;left   down   rght
@@ -81,12 +81,22 @@
   lctl KeyMenu   @nv_in @nv_tm spc           ralt   rctl                        ;;left   down   rght
 )
 
+;; Command mode for helix
+(deflayer command_mode 
+  esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12    @norm
+  grv     3      2      1      0      4      5      6      7      8      9      -      =      caps              
+  @capsw  k      @rt_lk bspc   tab    b      j      @._:   @,_'   @es_cm x      [      ]      \               
+  m       @alt_r @met_s @sft_t @ctl_n f      w      @ctl_a @sft_e @met_i @alt_h v      ret                                                
+  @st_tb  @p_z   @c_q   @l_rus @d_nv  @g_hx  y      @o_nv  @sym   @num   u      rsft           ;;up                    
+  lctl KeyMenu   @nv_in @nv_tm spc           ralt   rctl                        ;;left   down   rght
+)
+
 ;; Sticky Cyrillic layer in helix
 (deflayer sticky-helix
   esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12    @norm
   grv     3      2      1      0      4      5      6      7      8      9      -      =      caps              
   @capsw  @p_h   @rt_lk bspc   tab    @,_h   @;_h   @/:_h  @,_'   esc    @x_h   @ru[   @ru]   \               
-  @v_h    @r_h   @c_h   @n_h   @y_h   @rw_h  @qa_h  @t_h   @j_h   @f_h   @b_h   @._h   ret                        
+  @v_h    @h_h   @c_h   @n_h   @y_h   @rw_h  @qa_h  @t_h   @j_h   @f_h   @b_h   @._h   ret                        
   @st_tb  @lo_h  @gi_h  @k_h   @d_h   @u_h   @[_h   @e_h   @z`_h  @m]_h  @s'_h  rsft           ;;up              
   lctl KeyMenu   @nv_in @nv_tm spc           ralt   rctl                        ;;left   down   rght
 )
@@ -196,7 +206,6 @@ Leader keys and the layers they lead to
 )
 
 (defalias
-
   ;; Layer manipulation
   hb (layer-switch base)
   tb (layer-toggle base)
@@ -280,6 +289,9 @@ Leader keys and the layers they lead to
   hx_k (tap-hold-next-release 130 k (tap-macro-release (layer-add ruhelix2en) (around lalt lsft )))
   l2rhx (tap-hold-next-release 130 l (tap-macro-release (layer-rem ruhelix2en) (around lalt lsft )))
 
+  hx_.: (tap-hold-next-release 130 . (tap-macro-release : (layer-add command_mode)))
+  es_cm (tap-macro-release esc (layer-rem command_mode))
+
   ;; Cyrillic sticky helix
   p_h #(p (layer-rem sticky-helix) (around lalt lsft))
   ,_h #(, (layer-rem sticky-helix) (around lalt lsft))
@@ -287,7 +299,7 @@ Leader keys and the layers they lead to
   /:_h (tap-hold-next-release 130 #(/ (around lalt lsft) (layer-rem sticky-helix)) #(: (around lalt lsft) (layer-rem sticky-helix)))
   x_h #(x (layer-rem sticky-helix) (around lalt lsft))
   v_h #(v (layer-rem sticky-helix) (around lalt lsft))
-  r_h #(r (around lalt lsft))
+  h_h #(h (layer-rem sticky-helix) (around lalt lsft))
   c_h #(c (layer-rem sticky-helix) (around lalt lsft))
   n_h (tap-hold-next-release 130 #(n (layer-rem sticky-helix) (around lalt lsft)) lsft)
   y_h #(y (layer-rem sticky-helix) (around lalt lsft))
