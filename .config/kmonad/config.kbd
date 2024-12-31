@@ -114,7 +114,7 @@
   esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12    @norm
   grv     3      2      1      0      4      5      6      7      8      9      -      =      caps              
   @capsw  k      @rt_lk bspc   @nm2bs v      XX     @._:   @,_'   @es_lk q      [      ]      \               
-  esc     @alt_3 @met_2 @sft_1 @ctl_0 4      5      @ctl_6 @sft_7 @met_8 @alt_9 XX     ret                                                
+  esc     @alt_4 @met_3 @sft_2 @ctl_1 0      5      @ctl_6 @sft_7 @met_8 @alt_9 XX     ret                                                
   @st_tb  m      6      7      @d_nv  @altf4 x      XX     @sym   XX     u      rsft           ;;up              
   lctl KeyMenu   @nv_in lalt   spc           ralt   rctl                        ;;left   down   rght
 )
@@ -173,7 +173,7 @@ Leader keys and the layers they lead to
   esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12    @norm
   grv     3      2      1      0      4      5      6      7      8      9      -      =      caps              
   @capsw  k      ret    bspc   f6     v      XX     @._:   @,_'   esc    q      [      ]      \               
-  esc     @3&    @2&    @1&    @0&    @4&    @5&    @6&    @7&    @8&    @9&    XX     ret                                                
+  esc     @4&    @3&    @2&    @1&    @0&    @5&    @6&    @7&    @8&    @9&    XX     ret                                                
   @st_tb  m      6      @100   @d_nv  p      x      XX     y      XX     u      rsft           ;;up              
   lctl KeyMenu   @nv_in lalt   spc           ralt   rctl                        ;;left   down   rght
 )
@@ -385,10 +385,10 @@ Leader keys and the layers they lead to
   sm2bs (tap-hold-next-release 130 tab (layer-rem symbols))
 
   ;; Numbers
-  alt_3 (tap-hold-next-release 130 3 lalt)
-  sft_1 (tap-hold-next-release 130 1 lsft)
-  ctl_0 (tap-hold-next-release 130 0 lctl)
-  met_2 (tap-hold-next-release 130 2 lmet)
+  alt_4 (tap-hold-next-release 130 4 lalt)
+  sft_2 (tap-hold-next-release 130 2 lsft)
+  ctl_1 (tap-hold-next-release 130 1 lctl)
+  met_3 (tap-hold-next-release 130 3 lmet)
   met_8 (tap-hold-next-release 130 8 rmet)
   ctl_6 (tap-hold-next-release 130 6 rctl)
   sft_7 (tap-hold-next-release 130 7 rsft)
