@@ -15,7 +15,7 @@
 
 (deflayer base 
   esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12    @norm
-  grv     3      2      1      0      4      5      6      7      8      9      -      =      caps              
+  grv     4      3      2      1      0      5      6      7      8      9      -      =      caps              
   @capsw  k      @rt_lk bspc   tab    b      j      @._:   @,_'   @es_lk x      [      ]      \               
   m       @alt_r @met_s @sft_t @ctl_n f      w      @ctl_a @sft_e @met_i @alt_h v      ret                                                
   @st_tb  @p_z   @c_q   @l_rus @d_nv  @g_hx  y      @o_nv  @sym   @num   u      rsft           ;;up                    
@@ -24,7 +24,7 @@
 
 (deflayer russian 
   esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12    @norm
-  grv     3      2      1      0      4      5      6      7      8      9      -      =      caps              
+  grv     4      3      2      1      0      5      6      7      8      9      -      =      caps              
   @capsw  p      @rt_lk bspc   tab    ,      ;      @/_:   @,_a   @es_lk x      @ru[   @ru]   \               
   v       @alt_h @met_c @st_n2 @ctl_y @r_w   q      @ct_t2 @sft_j @met_f @alt_b .      ret                        
   @st_tb  @l_o   @g_i   @k_en  @dnvr  u      [      @e_nv  @z_`   @m_]   @s_'   rsft           ;;up              
@@ -34,7 +34,7 @@
 ;; Latin helix
 (deflayer enhelix
   esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12    @norm
-  grv     3      2      1      0      4      5      6      7      8      9      -      =      caps              
+  grv     4      3      2      1      0      5      6      7      8      9      -      =      caps              
   @capsw  k      @rt_lk bspc   tab    b      @hx_j  @hx_.: @,_'   @es_lk x      [      ]      \               
   m       @hx_r  @hx_s  @hx_t  @ctl_n @hx_f  w      @hx_a  @sft_e @hx_i  h      v      ret                                                
   @st_tb  @p_z   @hx_cq @hx_l  @d_nv  @g_bs  y      @hx_o  @sym   @num   u      rsft           ;;up                    
@@ -44,7 +44,7 @@
 ;; Helix insert mode in Cyrillic 
 (deflayer ruhelix 
   esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12    @norm
-  grv     3      2      1      0      4      5      6      7      8      9      -      =      caps              
+  grv     4      3      2      1      0      5      6      7      8      9      -      =      caps              
   @capsw  p      @rt_lk bspc   tab    ,      ;      @/_:   @,_a   @es2en x      @ru[   @ru]   \               
   v       @alt_h @met_c @st_n2 @ctl_y @r_w   q      @ct_t2 @sft_j @met_f @alt_b .      ret                        
   @st_tb  @l_o   @g_i   @hx_k  @dnvr  u      [      @e_nv  @z_`   @m_]   @s_'   rsft           ;;up              
@@ -54,7 +54,7 @@
 ;; The first character of goto_word function for Cyrillic helix
 (deflayer goto_word1 
   esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12    @norm
-  grv     3      2      1      0      4      5      6      7      8      9      -      =      caps              
+  grv     4      3      2      1      0      5      6      7      8      9      -      =      caps              
   @capsw  @k&    @rt_lk bspc   tab    @b&    @j&    @._:   @,_'   @es_lk @x&    [      ]      \               
   m       @r&    @s&    @t&    @n&    @f&    @w&    @a&    @e&    @i&    @h&    @v&    ret                                                
   @st_tb  @p_z&  @c_q&  @l&    @d&    @g&    @y&    @o&    @sym   @num   @u&    rsft           ;;up                    
@@ -64,7 +64,7 @@
 ;; The second character of goto_word function for Cyrillic helix
 (deflayer goto_word2 
   esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12    @norm
-  grv     3      2      1      0      4      5      6      7      8      9      -      =      caps              
+  grv     4      3      2      1      0      5      6      7      8      9      -      =      caps              
   @capsw  @k&2   @rt_lk bspc   tab    @b&2   @j&2   @._:   @,_'   @es_lk @x&2    [      ]      \               
   m       @r&2   @s&2   @t&2   @n&2   @f&2   @w&2   @a&2   @e&2   @i&2   @h&2    @v&2    ret                                                
   @st_tb  @p_z&2 @c_q&2 @l&2   @d&2   @g&2   @y&2   @o&2   @sym   @num   @u&2    rsft           ;;up                    
@@ -74,7 +74,7 @@
 ;; Latin within Cyrillic helix
 (deflayer ruhelix2en
   esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12    @norm
-  grv     3      2      1      0      4      5      6      7      8      9      -      =      caps              
+  grv     4      3      2      1      0      5      6      7      8      9      -      =      caps              
   @capsw  k      @rt_lk bspc   tab    b      j      @._:   @,_'   @es_lk x      [      ]      \               
   m       @alt_r @met_s @sft_t @ctl_n f      w      @ctl_a @sft_e @met_i @alt_h v      ret                                                
   @st_tb  @p_z   @c_q   @l2rhx @d_nv  g      y      @o_nv  @sym   @num   u      rsft           ;;up                    
@@ -84,7 +84,7 @@
 ;; Command mode for helix
 (deflayer command_mode 
   esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12    @norm
-  grv     3      2      1      0      4      5      6      7      8      9      -      =      caps              
+  grv     4      3      2      1      0      5      6      7      8      9      -      =      caps              
   @capsw  k      @rt_lk bspc   tab    b      j      @._:   @,_'   @es_cm x      [      ]      \               
   m       @alt_r @met_s @sft_t @ctl_n f      w      @ctl_a @sft_e @met_i @alt_h v      ret                                                
   @st_tb  @p_z   @c_q   @l_rus @d_nv  @g_hx  y      @o_nv  @sym   @num   u      rsft           ;;up                    
@@ -94,7 +94,7 @@
 ;; Sticky Cyrillic layer in helix
 (deflayer sticky-helix
   esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12    @norm
-  grv     3      2      1      0      4      5      6      7      8      9      -      =      caps              
+  grv     4      3      2      1      0      5      6      7      8      9      -      =      caps              
   @capsw  @p_h   @rt_lk bspc   tab    @,_h   @;_h   @/:_h  @,_'   esc    @x_h   @ru[   @ru]   \               
   @v_h    @h_h   @c_h   @n_h   @y_h   @rw_h  @qa_h  @t_h   @j_h   @f_h   @b_h   @._h   ret                        
   @st_tb  @lo_h  @gi_h  @k_h   @d_h   @u_h   @[_h   @e_h   @z`_h  @m]_h  @s'_h  rsft           ;;up              
@@ -103,7 +103,7 @@
 
 (deflayer symbols
   esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11     f12    @norm
-  grv     3      2      1      0      4      5      6      7      8      9      -       =      bspc             
+  grv     4      3      2      1      0      5      6      7      8      9      -       =      bspc             
   @capsw  ~      @rt_lk bspc   @sm2bs @      XX     @._:   @,_'   @es_lk `      [       ]      \              
   ^       @alt_! @met_- @sft_+ @ctl_= ?      &      @ctlbr @sftbr @met_[ @alt_] ~       ret                     
   @st_tb  <      /      *      @>_nv  %      $      @;_nv  #      @num   \\     rsft           ;;up                
@@ -112,7 +112,7 @@
 
 (deflayer numbers
   esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12    @norm
-  grv     3      2      1      0      4      5      6      7      8      9      -      =      caps              
+  grv     4      3      2      1      0      5      6      7      8      9      -      =      caps              
   @capsw  k      @rt_lk bspc   @nm2bs v      XX     @._:   @,_'   @es_lk q      [      ]      \               
   esc     @alt_4 @met_3 @sft_2 @ctl_1 0      5      @ctl_6 @sft_7 @met_8 @alt_9 XX     ret                                                
   @st_tb  m      6      7      @d_nv  @altf4 x      XX     @sym   XX     u      rsft           ;;up              
@@ -122,7 +122,7 @@
 ;; CAPS
 (deflayer shifted
   esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11     f12    @norm
-  grv     3      2      1      0      4      5      6      7      8      9      -       =      caps              
+  grv     4      3      2      1      0      5      6      7      8      9      -       =      caps              
   @capsw  K      @rt_lk bspc   tab    B      J      @._:   @,_'   @es_lk X      [       ]       \               
   M       R      S      T      N      F      W      A      E      I      H      V       ret                        
   @st_tb  @P_Z   @C_Q   L      D      G      Y      O      @num   @sym   U      rsft            ;;up                
@@ -131,7 +131,7 @@
 
 (deflayer nav-edit
   esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12    @norm
-  grv     3      2      1      0      4      5      6      7      8      9      -      =      caps              
+  grv     4      3      2      1      0      5      6      7      8      9      -      =      caps              
   @capsw  del    @rt_lk bspc   tab    del    z      XX     f6     f5     u      [      ]      \               
   @redo   @cut   @copy  @pst   @undo  @ctl_w f6     left   down   up     right  J      ret                                                
   @st_tb  @ptab  @ntab  @pw    @nw    @altf4 x      XX  KeyHome  KeyEnd  XX     rsft          ;;up              
@@ -140,7 +140,7 @@
 
 (deflayer runav-edit
   esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12    @norm
-  grv     3      2      1      0      4      5      6      7      8      9      -      =      caps              
+  grv     4      3      2      1      0      5      6      7      8      9      -      =      caps              
   @capsw  del    @rt_lk bspc   tab    del    z      XX     f6     f5     u      [      ]      \               
   @redo   @cut   @copy  @pst   @undo  @ctl_w f6     left   down   up     right  J      ret                                                
   @st_tb  @ptab  @ntab  @pw    @nw    @altf4 x      XX   KeyHome KeyEnd  XX     rsft          ;;up              
@@ -153,7 +153,7 @@ Leader keys and the layers they lead to
 
 (deflayer leader-keys
   esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12    @norm
-  grv     3      2      1      0      4      5      6      7      8      9      -      =      caps              
+  grv     4      3      2      1      0      5      6      7      8      9      -      =      caps              
   @capsw  del    @rt_lk bspc   tab    del    z      XX     @jap_, f5     u      [      ]      \               
   @redo   @cut   @copy  @pst   @undo  @ctl_w f6     left   down   up     right  J      ret                                                
   @st_tb  @ptab  @ntab  @pw    @nw    @altf4 x      XX     @sym*2 @num*2 XX     rsft          ;;up              
@@ -162,7 +162,7 @@ Leader keys and the layers they lead to
 
 (deflayer sym2
   esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11     f12    @norm
-  grv     3      2      1      0      4      5      6      7      8      9      -       =      bspc             
+  grv     4      3      2      1      0      5      6      7      8      9      -       =      bspc             
   @capsw  @~&    ret    bspc   tab    @@&    XX     @._:&  @,_'&  esc    @`&    [       ]      \              
   @^&     @!&    @-&    @sft+& @=&    @?&    @&&    @lbr&  @rbr&  @[&    @]&    @~&     ret                     
   @st_tb  @<&    @/&    @*&    @>&    @%&    @$&    @;&    @#&    XX     @\&    rsft           ;;up                
@@ -171,7 +171,7 @@ Leader keys and the layers they lead to
 
 (deflayer num2
   esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12    @norm
-  grv     3      2      1      0      4      5      6      7      8      9      -      =      caps              
+  grv     4      3      2      1      0      5      6      7      8      9      -      =      caps              
   @capsw  k      ret    bspc   f6     v      XX     @._:   @,_'   esc    q      [      ]      \               
   esc     @4&    @3&    @2&    @1&    @0&    @5&    @6&    @7&    @8&    @9&    XX     ret                                                
   @st_tb  m      6      @100   @d_nv  p      x      XX     y      XX     u      rsft           ;;up              
@@ -180,7 +180,7 @@ Leader keys and the layers they lead to
 
 (deflayer markdown
   esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11     f12    @norm
-  grv     3      2      1      0      4      5      6      7      8      9      -       =      bspc             
+  grv     4      3      2      1      0      5      6      7      8      9      -       =      bspc             
   @capsw  ~      @rt_lk bspc   @?!    @      `      @._:   @,_'   esc    "      [       ]      \              
   ^       @alt_! @-=    @+=    @2=    %      &      @ctlbr @sftbr @2[    @2]    '       ret                     
   @st_tb  @</    /      *      @>=    ;      $      @hb    @##    @num   XX     rsft           ;;up                
@@ -189,7 +189,7 @@ Leader keys and the layers they lead to
 
 (deflayer ru_md
   esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11     f12    @norm
-  grv     3      2      1      0      4      5      6      7      8      9      -       =      bspc             
+  grv     4      3      2      1      0      5      6      7      8      9      -       =      bspc             
   @capsw  ~      ret    ;      bspc   @      `      @._:   @,_'   esc    "      [       ]      \              
   ^       @alt_! @-=    @+=    @2=    %      &      @ctlbr @sftbr @ru_2[ @ru_2] '       ret                     
   @st_tb  @<=    /      *      @>=    @?!    $      @hb    @##    @num   XX     rsft           ;;up                
@@ -198,7 +198,7 @@ Leader keys and the layers they lead to
 
 (deflayer normal
   esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11     f12    @hb       
-  grv     3      2      1      0      4      5      6      7      8      9      -       =      bspc                      
+  grv     4      3      2      1      0      5      6      7      8      9      -       =      bspc                      
   tab     q      w      e      r      t      y      u      i      o      p      [       ]      \             
   caps    a      s      d      f      g      h      j      k      l      ;      '       ret                      
   lsft    z      x      c      v      b      n      m      ,      .      /      rsft           ;;up                      
