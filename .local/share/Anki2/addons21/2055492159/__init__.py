@@ -1637,16 +1637,31 @@ class AnkiConnect:
 
     @util.api()
     def getReviewsOfCards(self, cards):
-        COLUMNS = ['id', 'usn', 'ease', 'ivl', 'lastIvl', 'factor', 'time', 'type']
-        QUERY = 'select {} from revlog where cid = ?'.format(', '.join(COLUMNS))
+        COLUMNS = ['cid', 'id', 'usn', 'ease', 'ivl', 'lastIvl', 'factor', 'time', 'type']
+
+        cid_to_reviews = {}
+        # 999 is the maximum number of variables sqlite allows
+        for cid_batch in util.batched(cards, 999):
+            placeholders = ','.join('?' * len(cid_batch))
+
+            cid_reviews = self.collection().db.all('select {} from revlog where cid in ({})'.format(', '.join(COLUMNS), placeholders), *cid_batch)
+            for cid_review in cid_reviews:
+                cid = cid_review[0]
+                reviews = cid_to_reviews.get(cid, [])
+                reviews.append(cid_review[1:])
+                cid_to_reviews[cid] = reviews
 
         result = {}
         for card in cards:
-            query_result = self.database().all(QUERY, card)
-            result[card] = [dict(zip(COLUMNS, row)) for row in query_result]
+            result[card] = [dict(zip(COLUMNS[1:], review)) for review in cid_to_reviews.get(card, [])]
 
         return result
 
+
+    @util.api()
+    def setDueDate(self, cards, days):
+        self.scheduler().set_due_date(cards, days, config_key=None)
+        return True
 
 
     @util.api()
@@ -1673,7 +1688,24 @@ class AnkiConnect:
 
 
     @util.api()
-    def notesInfo(self, notes):
+    def notesInfo(self, notes=None, query=None):
+        if notes is None and query is None:
+            raise Exception('Must provide either "notes" or a "query"')
+        
+        if query is not None:
+            notes = self.findNotes(query)
+
+        nid_to_card_ids = {}
+        # 999 is the maximum number of variables sqlite allows
+        for nid_batch in util.batched(notes, 999):
+            placeholders = ','.join('?' * len(nid_batch))
+
+            cid_and_nids = self.collection().db.all('select id, nid from cards where nid in ({}) order by ord'.format(placeholders), *nid_batch)
+            for cid, nid in cid_and_nids:
+                card_ids = nid_to_card_ids.get(nid, [])
+                card_ids.append(cid)
+                nid_to_card_ids[nid] = card_ids
+
         result = []
         for nid in notes:
             try:
@@ -1693,7 +1725,7 @@ class AnkiConnect:
                     'fields': fields,
                     'modelName': model['name'],
                     'mod': note.mod,
-                    'cards': self.collection().db.list('select id from cards where nid = ? order by ord', note.id)
+                    'cards': nid_to_card_ids[nid],
                 })
             except NotFoundError:
                 # Anki will give a NotFoundError if the note ID does not exist.
@@ -1778,11 +1810,16 @@ class AnkiConnect:
 
     @util.api()
     def guiSelectNote(self, note):
+        print('guiSelectNote actually selects card IDs and is deprecated; use guiSelectCard')
+        return self.guiSelectCard(note)
+
+    @util.api()
+    def guiSelectCard(self, card):
         (creator, instance) = aqt.dialogs._dialogs['Browser']
         if instance is None:
             return False
         instance.table.clear_selection()
-        instance.table.select_single_card(note)
+        instance.table.select_single_card(card)
         return True
 
     @util.api()
