@@ -1,4 +1,4 @@
-theme = "catppuccin_macchiato"
+theme = "drakula"
 
 [editor]
 rulers = [80, 120]
