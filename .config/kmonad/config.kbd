@@ -18,7 +18,7 @@
   grv     4      3      2      1      0      5      6      7      8      9      -      =      caps              
   @capsw  k      @rt_lk bspc   tab    b      j      @._:   @,_'   @es_lk x      [      ]      \               
   m       @alt_r @met_s @sft_t @ctl_n f      w      @ctl_a @sft_e @met_i @alt_h v      ret                                                
-  @st_tb  @p_z   @c_q   @l_rus @d_nv  @g_hx  y      @o_nv  @sym   @num   u      rsft           ;;up                    
+  @st_tb  @p_z   @c_q   @l_rus @d_nv  @g_hx  y      @o_nv  u      @num   @sym   rsft           ;;up                    
   lctl KeyMenu   @nv_in @nv_tm spc           ralt   rctl                        ;;left   down   rght
 )
 
@@ -27,7 +27,7 @@
   grv     4      3      2      1      0      5      6      7      8      9      -      =      caps              
   @capsw  p      @rt_lk bspc   tab    ,      @[_`   @/_.   @,_;   @es_lk s      @ru[   @ru]   \               
   v       @alt_h @met_c @st_n2 @ctl_y @r_a   @m_'   @ct_t2 @sft_j @met_f @alt_b @x_]   ret                        
-  @st_tb  @l_o   @g_i   @k_en  @dnvr  u      q      @e_nv  @rsym  @num   @z_w   rsft           ;;up              
+  @st_tb  @l_o   @g_i   @k_en  @dnvr  u      q      @e_nv  @z_w   @num   @rsym  rsft           ;;up              
   lctl KeyMenu   @nv_in @nv_tm spc           ralt   rctl                        ;;left   down   rght
 )
 
@@ -37,7 +37,7 @@
   grv     4      3      2      1      0      5      6      7      8      9      -      =      caps              
   @capsw  k      @rt_lk bspc   tab    b      @hx_j  @hx_.: @,_'   @es_lk x      [      ]      \               
   m       @hx_r  @hx_cq @hx_t  @ctl_n @hx_f  w      @hx_a  @sft_e @hx_i  h      v      ret                                                
-  @st_tb  @p_z   @hx_cq @hx_l  @d_nv  @g_bs  y      @hx_o  @sym   @num   u      rsft           ;;up                    
+  @st_tb  @p_z   @hx_cq @hx_l  @d_nv  @g_bs  y      @hx_o  u      @num   @sym   rsft           ;;up                    
   lctl KeyMenu   @nv_in @nv_tm spc           ralt   rctl                        ;;left   down   rght
 )
 
@@ -47,7 +47,7 @@
   grv     4      3      2      1      0      5      6      7      8      9      -      =      caps              
   @capsw  p      @rt_lk bspc   tab    ,      @[_`   @/_.   @,_;   @es2en s      @ru[   @ru]   \               
   v       @alt_h @met_c @st_n2 @ctl_y @r_a   @m_'   @ct_t2 @sft_j @met_f @alt_b @x_]   ret                        
-  @st_tb  @l_o   @g_i   @hx_k  @dnvr  u      q      @e_nv  @rsym  @num   @z_w   rsft           ;;up              
+  @st_tb  @l_o   @g_i   @hx_k  @dnvr  u      q      @e_nv  @z_w   @num   @rsym  rsft           ;;up              
   lctl KeyMenu   @nv_in @nv_tm spc           ralt   rctl                        ;;left   down   rght
 )
 
@@ -57,7 +57,7 @@
   grv     4      3      2      1      0      5      6      7      8      9      -      =      caps              
   @capsw  @k&    ret    bspc   tab    @b&    @j&    @._:   @,_'   @es_lk @x&    [      ]      \               
   m       @r&    @s&    @t&    @n&    @f&    @w&    @a&    @e&    @i&    @h&    @v&    ret                                                
-  @st_tb  @p_z&  @c_q&  @l&    @d&    @g&    @y&    @o&    @sym   @num   @u&    rsft           ;;up                    
+  @st_tb  @p_z&  @c_q&  @l&    @d&    @g&    @y&    @o&    @u&    @num   @sym   rsft           ;;up                    
   lctl KeyMenu   @nv_in @nv_tm spc           ralt   rctl                        ;;left   down   rght
 )
 
@@ -66,8 +66,8 @@
   esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12    @norm
   grv     4      3      2      1      0      5      6      7      8      9      -      =      caps              
   @capsw  @k&2   ret    bspc   tab    @b&2   @j&2   @._:   @,_'   @es_lk @x&2    [      ]      \               
-  m       @r&2   @s&2   @t&2   @n&2   @f&2   @w&2   @a&2   @e&2   @i&2   @h&2    @v&2    ret                                                
-  @st_tb  @p_z&2 @c_q&2 @l&2   @d&2   @g&2   @y&2   @o&2   @sym   @num   @u&2    rsft           ;;up                    
+  m       @r&2   @s&2   @t&2   @n&2   @f&2   @w&2   @a&2   @e&2   @i&2   @h&2   @v&2    ret                                                
+  @st_tb  @p_z&2 @c_q&2 @l&2   @d&2   @g&2   @y&2   @o&2   @u&2   @num   @sym   rsft           ;;up                    
   lctl KeyMenu   @nv_in @nv_tm spc           ralt   rctl                        ;;left   down   rght
 )
 
@@ -77,7 +77,7 @@
   grv     4      3      2      1      0      5      6      7      8      9      -      =      caps              
   @capsw  k      ret    bspc   tab    b      j      @._:   @,_'   @es_lk x      [      ]      \               
   m       @alt_r @met_s @sft_t @ctl_n f      w      @ctl_a @sft_e @met_i @alt_h v      ret                                                
-  @st_tb  @p_z   @c_q   @l2rhx @d_nv  g      y      @o_nv  @rsym  @num   u      rsft           ;;up                    
+  @st_tb  @p_z   @c_q   @l2rhx @d_nv  g      y      @o_nv  u      @num   @rsym  rsft           ;;up                    
   lctl KeyMenu   @nv_in @nv_tm spc           ralt   rctl                        ;;left   down   rght
 )
 
@@ -87,7 +87,7 @@
   grv     4      3      2      1      0      5      6      7      8      9      -      =      caps              
   @capsw  k      ret    bspc   tab    b      j      @._:   @,_'   @es_cm x      [      ]      \               
   m       @alt_r @met_s @sft_t @ctl_n f      w      @ctl_a @sft_e @met_i @alt_h v      ret                                                
-  @st_tb  @p_z   @c_q   @l_rus @d_nv  @g_hx  y      @o_nv  @sym   @num   u      rsft           ;;up                    
+  @st_tb  @p_z   @c_q   @l_rus @d_nv  @g_hx  y      @o_nv  u      @num   @sym   rsft           ;;up                    
   lctl KeyMenu   @nv_in @nv_tm spc           ralt   rctl                        ;;left   down   rght
 )
 
@@ -97,7 +97,7 @@
   grv     4      3      2      1      0      5      6      7      8      9      -      =      caps              
   @capsw  @p_h   ret    bspc   tab    @,_h   @[`_h  @/._h  @,;_h  esc    @s_h   @ru[   @ru]   \               
   @v_h    @h_h   @c_h   @n_h   @y_h   @ra_h  @m'_h  @t_h   @j_h   @f_h   @b_h   @x]_h  ret                        
-  @st_tb  @lo_h  @gi_h  @k_h   @d_h   @u_h   @q_h   @e_h   @rsym  @num   @zw_h   rsft           ;;up              
+  @st_tb  @lo_h  @gi_h  @k_h   @d_h   @u_h   @q_h   @e_h   @zw_h  @num   @rsym  rsft           ;;up              
   lctl KeyMenu   @nv_in @nv_tm spc           ralt   rctl                        ;;left   down   rght
 )
 
@@ -124,7 +124,7 @@
   grv     4      3      2      1      0      5      6      7      8      9      -      =      caps              
   @capsw  k      ret    bspc   tab    v      XX     @._:   @,_'   @sc2bs q      [      ]      \               
   esc     @alt_4 @met_3 @sft_2 @ctl_1 0      5      @ctl_6 @sft_7 @met_8 @alt_9 XX     ret                                                
-  @st_tb  m      6      7      @d_nv  @altf4 x      XX     @sym   XX     u      rsft           ;;up              
+  @st_tb  m      6      7      @d_nv  @altf4 x      XX     XX     u      @sym   rsft           ;;up              
   lctl KeyMenu   @nv_in lalt   spc           ralt   rctl                        ;;left   down   rght
 )
 
@@ -134,8 +134,8 @@
   grv     4      3      2      1      0      5      6      7      8      9      -       =      caps              
   @capsw  K      ret    bspc   tab    B      J      @._:   @,_'   esc    X      [       ]       \               
   M       R      S      T      N      F      W      A      E      I      H      V       ret                        
-  @st_tb  @P_Z   @C_Q   L      D      G      Y      O      @num   @sym   U      rsft            ;;up                
-  lctl  KeyMenu  lmet   lalt          @out          ralt   rctl                        ;;left   down   rght
+  @st_tb  @P_Z   @C_Q   L      D      G      Y      O      U      @num   @sym   rsft            ;;up                
+  lctl  KeyMenu  lmet   lalt          @out          ralt   rctl                 ;;left   down   rght
 )
 
 (deflayer nav-edit
@@ -152,7 +152,7 @@
   grv     4      3      2      1      0      5      6      7      8      9      -      =      caps              
   @capsw  del    ret    bspc   tab    @ctl_w z      XX     f6     f5     u      [      ]      \               
   @redo   @cut   @copy  @pst   @undo  del    f6     left   down   up     right  J      ret                                                
-  @st_tb  @ptab  @ntab  @pw    @nw    @altf4 x      XX   KeyHome KeyEnd  XX     rsft          ;;up              
+  @st_tb  @ptab  @ntab  @pw    @nw    @altf4 x      XX   KeyHome KeyEnd  XX            rsft          ;;up              
   lctl  KeyMenu  @nvoff lalt          spc           ralt   rctl                        ;;left   down   rght
 )
  
@@ -165,7 +165,7 @@ Leader keys and the layers they lead to
   grv     4      3      2      1      0      5      6      7      8      9      -      =      caps              
   @capsw  del    ret    bspc   tab    del    z      XX     @jap_, f5     u      [      ]      \               
   @redo   @cut   @copy  @pst   @undo  @ctl_w f6     left   down   up     right  J      ret                                                
-  @st_tb  @ptab  @ntab  @pw    @nw    @altf4 x      XX     @sym*2 @num*2 XX     rsft          ;;up              
+  @st_tb  @ptab  @ntab  @pw    @nw    @altf4 x      XX     XX     @sym*2 @num*2        rsft          ;;up              
   lctl  KeyMenu  @nvoff lalt          spc           ralt   rctl                        ;;left   down   rght
 )
 
@@ -174,7 +174,7 @@ Leader keys and the layers they lead to
   grv     4      3      2      1      0      5      6      7      8      9      -       =      bspc             
   @capsw  @~&    ret    bspc   tab    @@&    @$&    @._:&  @,_'&  esc    @`&    [       ]      \              
   @^&     @!&    @-&    @sft+& @=&    @?&    @#&    @lbr&  @rbr&  @[&    @]&    @~&     ret                     
-  @st_tb  @<&    @/&    @*&    @>&    @%&    @&&    @;&    @kav&  XX     @\&    rsft           ;;up                
+  @st_tb  @<&    @/&    @*&    @>&    @%&    @&&    @;&    @\&    XX     @kav&  rsft           ;;up                
   lctl KeyMenu   @nv_in @nv_tm spc           ralt   rctl                        ;;left   down   rght
 )
 
@@ -183,7 +183,7 @@ Leader keys and the layers they lead to
   grv     4      3      2      1      0      5      6      7      8      9      -       =      bspc             
   @capsw  @~&    ret    bspc   tab    @@&    @$&    @._:&  @,_'&  esc    @`&    [       ]      \              
   @^&     @!&    @-&    @sft+& @=&    @?&    @#&    @lbr&  @rbr&  @[&    @]&    @~&     ret                     
-  @st_tb  @<&    @/&    @*&    @>&    @%&    @&&    @;&    @kav&  XX     @\&    rsft           ;;up                
+  @st_tb  @<&    @/&    @*&    @>&    @%&    @&&    @;&    @\&    XX     @kav&  rsft           ;;up                
   lctl KeyMenu   @nv_in @nv_tm spc           ralt   rctl                        ;;left   down   rght
 )
 
