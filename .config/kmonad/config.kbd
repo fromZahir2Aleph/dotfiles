@@ -165,7 +165,7 @@ Leader keys and the layers they lead to
   grv     4      3      2      1      0      5      6      7      8      9      -      =      caps              
   @capsw  del    ret    bspc   tab    del    z      XX     @jap_, f5     u      [      ]      \               
   @redo   @cut   @copy  @pst   @undo  @ctl_w f6     left   down   up     right  J      ret                                                
-  @st_tb  @ptab  @ntab  @pw    @nw    @altf4 x      XX     XX     @sym*2 @num*2        rsft          ;;up              
+  @st_tb  @ptab  @ntab  @pw    @nw    @altf4 x      XX     XX     @num*2 @sym*2        rsft          ;;up              
   lctl  KeyMenu  @nvoff lalt          spc           ralt   rctl                        ;;left   down   rght
 )
 
