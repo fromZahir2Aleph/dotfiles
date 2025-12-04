@@ -172,8 +172,8 @@ Leader keys and the layers they lead to
 (deflayer sym2
   esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11     f12    @norm
   grv     4      3      2      1      0      5      6      7      8      9      -       =      bspc             
-  @capsw  @~&    ret    bspc   tab    @@&    @$&    esc    @,_'&  @._:&  esc    @`&    [       ]      \              
-  @^&     @!&    @-&    @sft+& @=&    @?&    @#&    @lbr&  @rbr&  @[&    @]&    @~&     ret                     
+  @capsw  @~&    ret    bspc   tab    @@&    @$&    @,_'&  @._:&  esc    @`&    [       ]      \              
+  @^&     @!&    @-&    @sft+& @=&    @?&    @#&    @lbr&  @rbr&  @[&    @]&    @~&    ret                     
   @st_tb  @<&    @/&    @*&    @>&    @%&    @&&    @;&    @\&    @kav&  XX     rsft           ;;up                
   lctl KeyMenu   @nv_in @nv_tm spc           ralt   rctl                        ;;left   down   rght
 )
