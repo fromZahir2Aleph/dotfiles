@@ -776,7 +776,7 @@ class AnkiConnect:
             mediaList = [mediaObjectOrList]
 
         for media in mediaList:
-            if media is not None and len(media['fields']) > 0:
+            if media is not None:
                 try:
                     mediaFilename = self.storeMediaFile(media['filename'],
                                                         data=media.get('data'),
@@ -785,7 +785,7 @@ class AnkiConnect:
                                                         skipHash=media.get('skipHash'),
                                                         deleteExisting=media.get('deleteExisting'))
 
-                    if mediaFilename is not None:
+                    if mediaFilename is not None and 'fields' in media and type(media['fields']) == list:
                         for field in media['fields']:
                             if field in ankiNote:
                                 if mediaType is util.MediaType.Picture:
@@ -1982,6 +1982,16 @@ class AnkiConnect:
         reviewer._answerCard(ease)
         return True
 
+    @util.api()
+    def guiPlayAudio(self):
+        if not self.guiReviewActive():
+            return False
+
+        reviewer = self.reviewer()
+
+        reviewer.replayAudio()
+
+        return True
 
     @util.api()
     def guiUndo(self):
