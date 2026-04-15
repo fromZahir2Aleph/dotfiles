@@ -47,9 +47,10 @@ mode.select = "SELECT"
 
 [keys.normal]
 l = "goto_word"
-"C-l" = "global_search"
+L = "global_search"
 j = "select_all"
 h = "collapse_selection"
+"C-." = "repeat_last_motion"
 "C-h" = "flip_selections"
 "C-c" = "copy_selection_on_prev_line"
 "C-e" = ["move_next_word_end", "collapse_selection", "insert_mode"]
@@ -57,15 +58,12 @@ h = "collapse_selection"
 
 [keys.select]
 l = "goto_word"
-"C-l" = "global_search"
+L = "global_search"
 j = "select_all"
 h = "collapse_selection"
+"C-." = "repeat_last_motion"
 "C-h" = "flip_selections"
 "C-c" = "copy_selection_on_prev_line"
-"A-." = "repeat_last_motion"
-
-[keys.normal.space]
-l = "global_search"
 
 [keys.normal.'C-j']
 l = ":sh kitten @ launch --title Terminal --keep-focus --cwd=current"
