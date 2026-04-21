@@ -37,7 +37,7 @@
   grv     4      3      2      1      0      5      6      7      8      9      -      =      caps              
   @capsw  k      @rt_lk bspc   tab    b      @hx_j  @hx_.: @,_'   @es_lk x      [      ]      \               
   m       @hx_r  @hx_cq @hx_t  @ctl_n @hx_f  w      @hx_a  @sft_e @hx_i  h      v      ret                                                
-  @st_tb  @p_z   @hx_cq l      @d_nv  @g_bs  y      @hx_o  u      @hsym  @num   rsft           ;;up                    
+  @st_tb  @p_z   @hx_cq l      @d_nv  @g_bs  y      @hx_o  u      @sym   @num   rsft           ;;up                    
   lctl KeyMenu   @nv_in @nv_tm spc           ralt   rctl                        ;;left   down   rght
 )
 
@@ -81,7 +81,8 @@
   lctl KeyMenu   @nv_in @nv_tm spc           ralt   rctl                        ;;left   down   rght
 )
 
-(deflayer symbols
+#| --------------------------------------------------------------------------
+(deflayer prog-symbols
   esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11     f12    @norm
   grv     4      3      2      1      0      5      6      7      8      9      -       =      bspc             
   @capsw  \\     ret    bspc   tab    @      $      @,_'   @,_'   @es2bs `      [       ]      \              
@@ -89,26 +90,14 @@
   @st_tb  <      /      *      @>_nv  %      ^      @;_nv  :      @kav   @num   rsft           ;;up                
   lctl KeyMenu   @nv_in @nv_tm spc           ralt   rctl                        ;;left   down   rght
 )
-
-#| --------------------------------------------------------------------------
-(deflayer symbols
-  - : ? ! " () [] # / < ;
-  esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11     f12    @norm
-  grv     4      3      2      1      0      5      6      7      8      9      -       =      bspc             
-  @capsw  \\     ret    bspc   tab    @      $      @,_'   @,_'   @es2bs `      [       ]      \              
-  #       @alt_! @met_" @sft_- @ctl_? ;      &      @ctlbr @sftbr @met_[ @alt_] ~       ret                     
-  @st_tb  <      :      /      @#_nv  %      ^      @;_nv  :      @kav   @num   rsft           ;;up                
-  lctl KeyMenu   @nv_in @nv_tm spc           ralt   rctl                        ;;left   down   rght
-)
   -------------------------------------------------------------------------- |#
 
-;; helix symbols
-(deflayer helix-symbols
+(deflayer symbols
   esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11     f12    @norm
   grv     4      3      2      1      0      5      6      7      8      9      -       =      bspc             
   @capsw  \\     ret    bspc   tab    @      $      @,_'   @,_'   @es2bs `      [       ]      \              
-  #       @halt! @met_- @sft_+ @ctl_= ?      &      @ctlbr @sftbr @met_[ @halt] ~       ret                     
-  @st_tb  <      /      *      @>_nv  %      ^      @;_nv  :      @kav   @num   rsft           ;;up                
+  =       !      @kav   -      ?      ;      &      @ctlbr @sftbr @met_[ @alt_] ~       ret                     
+  @st_tb  *      /      :      @#_nv  +      ^      @<_nv  >      %      @num   rsft           ;;up                
   lctl KeyMenu   @nv_in @nv_tm spc           ralt   rctl                        ;;left   down   rght
 )
 
@@ -116,8 +105,8 @@
   esc     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11     f12    @norm
   grv     4      3      2      1      0      5      6      7      8      9      -       =      bspc             
   @capsw  @r\    ret    bspc   tab    @r@    @r$    @r,_'  @r,_'  @es2bs @r`    [       ]      \              
-  @r#     @ralt! @rmet- @rsft+ @rctl= @r?    @ru&   @rctlb @rsftb @rmet[ @ralt] @r~     ret                     
-  @st_tb  @r<    @r/    @r*    @r>nv  @r%    @r^    @r;nv  @r:    @rukv  @num    rsft           ;;up                
+  @r=     @r!    @rukv  @r-    @r?    @r;    @ru&   @rctlb @rsftb @rmet[ @ralt] @r~     ret                     
+  @st_tb  @r*    @r/    @r:    @r#nv  @r+    @r^    @r<nv  @r>    @r%    @num    rsft           ;;up                
   lctl KeyMenu   @nv_in @nv_tm spc           ralt   rctl                        ;;left   down   rght
 )
 
@@ -233,8 +222,6 @@ Leader keys and the layers they lead to
 
   rs #((around lalt lsft) P5 (layer-add rusymbols))
   hs (layer-add symbols)
-  thx (layer-toggle helix-symbols)
-  hhx (layer-toggle helix-symbols)
   tn (layer-toggle numbers)
   hn (layer-add numbers) 
   rus (layer-switch russian)
@@ -245,7 +232,6 @@ Leader keys and the layers they lead to
   nvoff (layer-rem nav-edit)
   sym (tap-hold-next-release 130 (around-next @ts) @hs)
   rsym (tap-hold-next-release 130 (around-next @rs) @hs)
-  hsym (tap-hold-next-release 130 (around-next @thx) @hhx)
   num (tap-hold-next-release 130 (around-next @tn) @hn)
   capsw (layer-add shifted)
   sp_hb (tap-hold-next-release 130 spc @hb :timeout-button spc)
@@ -354,18 +340,14 @@ Leader keys and the layers they lead to
   sftbr (tap-hold-next-release 130 \) rsft)
   alt_] (tap-hold-next-release 130 ] (around lalt @tb))
   met_[ (tap-hold-next-release 130 [ (around lmet @tb))
-  >_nv (tap-hold-next-release 130 > (layer-toggle nav-edit))
-  ;_nv (tap-hold-next-release 130 ; (layer-toggle nav-edit))
+  #_nv (tap-hold-next-release 130 # (layer-toggle nav-edit))
+  <_nv (tap-hold-next-release 130 < (layer-toggle nav-edit))
   es2bs (tap-hold-next-release 130 esc (layer-rem symbols))
   kav (around lsft ')
 
   ;; Helix symbols
   halt! (tap-hold-next-release 130 ! lalt )
-  hctl= (tap-hold-next-release 130 = (around lctl @thx))
-  hmet- (tap-hold-next-release 130 - (around lmet @thx))
-  hctbr (tap-hold-next-release 130 \( (around rctl @thx))
   halt] (tap-hold-next-release 130 ] lalt)
-  hmet[ (tap-hold-next-release 130 [ (around lmet @tb))
 
   r~ #(~ (layer-rem rusymbols) (around lalt lsft))
   r@ #(@ (layer-rem rusymbols) (around lalt lsft))
@@ -373,24 +355,24 @@ Leader keys and the layers they lead to
   r,_' (tap-hold-next-release 130 #(, (around lalt lsft) (layer-rem rusymbols)) #(' (layer-rem rusymbols) (around lalt lsft)))
   r` #(` (layer-rem rusymbols) (around lalt lsft))
   r^ #(^ (layer-rem rusymbols) (around lalt lsft))
-  ralt! #(! (layer-rem rusymbols) (around lalt lsft))
-  rmet- #(- (layer-rem rusymbols) (around lalt lsft))
-  rsft+ (tap-hold-next-release 130 #(+ (layer-rem rusymbols) (around lalt lsft)) lsft)
-  rctl= (tap-hold-next-release 130 #(= (layer-rem rusymbols) (around lalt lsft)) (around lctl @tb))
+  r! #(! (layer-rem rusymbols) (around lalt lsft))
+  r- #(- (layer-rem rusymbols) (around lalt lsft))
+  r+ (tap-hold-next-release 130 #(+ (layer-rem rusymbols) (around lalt lsft)) lsft)
+  r= (tap-hold-next-release 130 #(= (layer-rem rusymbols) (around lalt lsft)) (around lctl @tb))
   r? #(? (layer-rem rusymbols) (around lalt lsft))
   ru& #(& (layer-rem rusymbols) (around lalt lsft))
   rctlb (tap-hold-next-release 130 #(\( (layer-rem rusymbols) (around lalt lsft)) (around rctl @tb))
   rsftb (tap-hold-next-release 130 #(\) (layer-rem rusymbols) (around lalt lsft)) rsft)
   rmet[ #([ (layer-rem rusymbols) (around lalt lsft))
   ralt] #(] (layer-rem rusymbols) (around lalt lsft))
-  r< #(< (layer-rem rusymbols) (around lalt lsft))
+  r> #(> (layer-rem rusymbols) (around lalt lsft))
   r/ #(/ (layer-rem rusymbols) (around lalt lsft))
   r* #(* (layer-rem rusymbols) (around lalt lsft))
-  r>nv #(> (layer-rem rusymbols) (around lalt lsft))
+  r#nv #(> (layer-rem rusymbols) (around lalt lsft))
   r% #(% (layer-rem rusymbols) (around lalt lsft))
   r$ #($ (layer-rem rusymbols) (around lalt lsft))
-  r;nv #(; (layer-rem rusymbols) (around lalt lsft))
-  r# #(# (layer-rem rusymbols) (around lalt lsft))
+  r<nv #(; (layer-rem rusymbols) (around lalt lsft))
+  r; #(# (layer-rem rusymbols) (around lalt lsft))
   r\ #(\\ (layer-rem rusymbols) (around lalt lsft))
   rukv #((around lsft ') (layer-rem rusymbols) (around lalt lsft))
 
